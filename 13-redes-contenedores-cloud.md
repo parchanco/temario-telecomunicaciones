@@ -35,3 +35,45 @@ Un **balanceador de carga** reparte las peticiones entrantes entre varias instan
 - **Basado en latencia/salud**: monitoriza activamente qué instancias responden más rápido o han dejado de responder (*health checks*), y ajusta el reparto o retira instancias defectuosas de la rotación automáticamente.
 
 La conexión con telecom: un balanceador de carga resuelve, a nivel de aplicación, el mismo problema que resolvía la reutilización de células del bloque 6 (repartir usuarios entre estaciones base cercanas para que ninguna se congestione) o el enrutamiento del bloque 5 (elegir el mejor camino disponible en cada momento) — es el mismo problema de fondo, "repartir demanda sobre capacidad limitada", resuelto en una capa distinta de la pila.
+
+---
+
+## Profundización
+
+### Namespaces: qué virtualiza realmente el kernel
+
+Desmontar la magia de Docker ayuda a depurarlo: un contenedor **no es una máquina virtual pequeña** — no hay otro sistema operativo dentro. Es un proceso normal de Linux al que el kernel, mediante **namespaces**, le sirve una vista privada de ciertos recursos: su propio árbol de procesos (PID namespace — dentro, tu app es el PID 1), su propio sistema de archivos (mount), y — el que importa aquí — su propia **pila de red completa** (network namespace): interfaces, tabla de rutas, reglas de firewall e IPs propias, virtualizadas por el kernel del host. Los **cgroups** completan el cuadro limitando cuánta CPU y memoria puede consumir.
+
+Consecuencias prácticas de entender esto: los contenedores arrancan en milisegundos (es lanzar un proceso, no botar un SO), todos los contenedores comparten el kernel del host (por eso una imagen de Linux no corre "nativa" en macOS — Docker Desktop lleva una VM de Linux escondida, y por eso el rendimiento de red/disco difiere entre tu portátil y producción), y el aislamiento es de kernel, no de hardware — más ligero pero menos hermético que una VM, lo que explica por qué los proveedores cloud no mezclan contenedores de clientes distintos sin una capa extra de aislamiento.
+
+### El viaje completo de un paquete hasta el pod
+
+El ejercicio mental que une los bloques 5, 11 y este: una petición HTTPS de un usuario hasta tu código en Kubernetes, salto a salto —
+
+1. **DNS público** resuelve `api.tuapp.com` a la IP del balanceador cloud (bloque 5).
+2. El **load balancer del proveedor** (que ya hace *health checks* y quizá termina TLS — bloque 9) reenvía a un nodo del clúster.
+3. El **Ingress controller** (un proxy tipo nginx corriendo como pod) mira host y ruta HTTP y elige el **Service** interno.
+4. El Service no es un proceso: son **reglas de reescritura de destino programadas en el kernel de cada nodo** (iptables/IPVS — NAT del bloque 5, otra vez) que sustituyen la IP virtual del Service por la IP real de un pod concreto, elegido entre los sanos.
+5. La red del clúster (**CNI**) entrega el paquete al pod, esté en el nodo que esté; si hay **service mesh**, el sidecar lo intercepta antes (mTLS, métricas) y lo pasa, por fin, a tu proceso.
+
+Cada tecnología de moda de esta lista es un concepto viejo de telecom con uniforme nuevo: DNS, NAT, proxies, health checks, enrutamiento. Cuando algo falla "en la red de Kubernetes", esta lista es literalmente tu checklist de depuración: ¿en cuál de los cinco saltos muere el paquete?
+
+### Network policies: el firewall vuelve, declarativo
+
+Por defecto, en Kubernetes **todo pod puede hablar con todo pod** — una red plana. Cómodo para empezar, incómodo cuando piensas en el bloque 9: un atacante que compromete el pod del frontend puede intentar conectarse directamente a la base de datos. Las **NetworkPolicies** son el firewall de este mundo, con dos giros: son **declarativas** ("los pods con etiqueta `app=db` solo aceptan tráfico de pods `app=api` al puerto 5432") y siguen a los pods automáticamente aunque cambien de IP o de nodo — reglas sobre *identidades lógicas*, no sobre direcciones, porque en este entorno las direcciones son efímeras por diseño. El principio subyacente es el mínimo privilegio del bloque 15, aplicado al tráfico: la pregunta de diseño no es "¿qué bloqueo?" sino "¿qué conversaciones tienen motivo legítimo para existir?".
+
+## Ejercicio práctico
+
+Con Docker en tu máquina, 10 minutos de ver-para-creer:
+
+1. `docker network create demo` y arranca dos contenedores en ella: `docker run -d --name web --network demo nginx` y `docker run -it --rm --network demo alpine sh`.
+2. Desde el alpine: `ping web` — funciona **por nombre**: acabas de usar el DNS interno de Docker (el análogo en miniatura de los Services de Kubernetes). Luego `wget -qO- http://web` — servido por nginx, de contenedor a contenedor, sin haber publicado ningún puerto al exterior.
+3. `docker network inspect demo`: ahí está la subred privada y la IP asignada a cada contenedor — la VPC de juguete de tu portátil (bloque 15).
+4. Remate conceptual: `docker exec web ip addr` y compara con `ip addr` (o `ifconfig`) en tu host — dos vistas de red completamente distintas sobre el mismo kernel. Eso son los network namespaces.
+
+## Autoevaluación
+
+1. "Un contenedor es una VM ligera" — desmonta la frase: ¿qué comparte con el host que una VM no comparte, y qué dos mecanismos del kernel lo hacen posible?
+2. Recorre de memoria los cinco saltos de una petición externa hasta un pod. ¿En cuál actúa NAT? ¿En cuál se decide el balanceo?
+3. ¿Por qué un Service de Kubernetes puede repartir tráfico sin ser un proceso por el que pasen los paquetes?
+4. ¿Por qué las NetworkPolicies se definen sobre etiquetas y no sobre IPs, y qué principio del bloque 15 implementan?

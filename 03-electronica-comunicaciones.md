@@ -43,3 +43,43 @@ Un **oscilador** es un circuito que genera una señal periódica (una onda) de u
 El problema es que un oscilador libre no es muy preciso ni estable (varía con la temperatura, con el tiempo). Ahí entra el **PLL (Phase-Locked Loop, bucle de enganche de fase)**: un sistema de realimentación que "engancha" la frecuencia de un oscilador a una referencia muy precisa y estable (normalmente un cristal de cuarzo), corrigiendo continuamente cualquier desviación.
 
 No hace falta entender el diseño interno del PLL — la idea que hay que quedarse es: **los PLL son la pieza que permite generar frecuencias precisas y estables, y también "seguir" o sincronizarse con la frecuencia de una señal recibida** (por ejemplo, para que el receptor sepa exactamente en qué frecuencia y fase está transmitiendo el otro extremo). Aparecen en prácticamente cualquier equipo de radio, en relojes de procesadores, y en sistemas de sincronización de redes.
+
+---
+
+## Profundización
+
+### Ruido térmico y figura de ruido: el suelo bajo el que no se puede bajar
+
+Todo componente electrónico a temperatura ambiente genera **ruido térmico**: los electrones se agitan por el simple hecho de estar calientes, y esa agitación es una señal aleatoria inevitable. Esto marca un **suelo de ruido** físico: por debajo de cierta potencia, una señal recibida es indistinguible de la agitación térmica del propio receptor. Es la razón última por la que no basta con "amplificar más" una señal débil — amplificas el ruido junto con ella.
+
+De ahí la **figura de ruido**: una medida (en dB) de cuánto ruido *añade* cada componente además del que ya venía. Y de ahí también una regla de diseño que ya viste con el LNA: **el primer eslabón de la cadena domina el ruido total** — por eso los radiotelescopios y las estaciones terrenas de satélite llegan a enfriar criogénicamente sus primeros amplificadores: bajar la temperatura baja literalmente el ruido térmico. En el extremo cotidiano, es también la razón por la que un amplificador de antena de TV barato mal colocado puede *empeorar* la recepción: si añade más ruido del que compensa, el SNR neto baja.
+
+### Duplexación: cómo se habla y escucha a la vez
+
+Un detalle que se da por sentado: tu móvil transmite y recibe *simultáneamente* (hablas y escuchas en una llamada). ¿Cómo, si su propio transmisor es millones de veces más potente que la señal que intenta recibir? Dos estrategias:
+
+- **FDD (Frequency Division Duplex)**: transmitir y recibir en frecuencias distintas, con filtros muy selectivos (el *duplexor*) separándolas. Es como hablar y escuchar en dos idiomas distintos a la vez.
+- **TDD (Time Division Duplex)**: transmitir y recibir en la misma frecuencia pero alternando en el tiempo, tan rápido que parece simultáneo. Ventaja moderna clave: se puede repartir el tiempo de forma asimétrica (más ranuras de bajada que de subida, que es como realmente usamos internet), y por eso la mayoría del 5G en bandas nuevas es TDD.
+
+### SDR: la radio hecha software
+
+La tendencia que ha transformado este campo: en el receptor clásico, cada bloque (mezclador, filtro, demodulador) era hardware físico. En una **SDR (Software Defined Radio)**, el ADC se coloca lo más cerca posible de la antena y **todo lo demás se hace en software**: filtrar, mezclar, demodular son ahora funciones de procesado digital (bloque 8) que puedes cambiar recargando un programa, no resoldando un circuito.
+
+Esto importa por dos razones. Práctica: una misma placa barata puede ser hoy un receptor de FM, mañana un decodificador de aviones y pasado un analizador de espectro. Conceptual: es la demostración física de que **modulación, filtrado y demodulación son matemáticas, no electrónica** — la electrónica solo era la forma de calcularlas antes de que el cómputo fuera barato. Las estaciones base 5G modernas son, en gran parte, SDRs industriales.
+
+## Ejercicio práctico
+
+Compra un **RTL-SDR** (~30€, un USB que nació como sintonizador de TV) o usa un receptor SDR público online (busca "WebSDR" — hay receptores reales controlables desde el navegador, gratis):
+
+1. Abre el espectro en vivo y "ve" las emisoras de FM como jorobas de energía — cada joroba es el ancho de banda de una emisora (bloque 1, en vivo).
+2. Sintoniza una y observa cómo el software la mezcla, filtra y demodula — toda la cadena del receptor de este bloque, visible en pantalla.
+3. Fíjate en el suelo de ruido: la "hierba" del fondo del espectro es el ruido térmico de esta sección. Toda señal visible sobresale de esa hierba; la que no sobresale, no existe para el receptor.
+
+Es probablemente la mejor relación coste/intuición de todo el temario.
+
+## Autoevaluación
+
+1. ¿Por qué el componente más crítico para la sensibilidad de un receptor es el primero de la cadena y no el más potente?
+2. ¿Qué problema resuelve el receptor heterodino y qué pieza cambia realmente cuando "giras el dial"?
+3. ¿Por qué amplificar más no ayuda con una señal por debajo del suelo de ruido?
+4. FDD vs TDD: ¿cuál encaja mejor con un tráfico de internet muy asimétrico y por qué?

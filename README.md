@@ -4,6 +4,8 @@
 
 Cómo usar esto: marca cada punto con `- [x]` cuando sientas que puedes **explicárselo a otra persona sin mirar apuntes**. Ese es el criterio de "terminado", no haber leído el capítulo.
 
+Cada bloque incluye además, al final del archivo: una sección de **Profundización** (conceptos de segundo nivel, una vez asentada la base), un **Ejercicio práctico** que puedes hacer desde tu portátil, y preguntas de **Autoevaluación** para comprobar el criterio de arriba. Sugerencia de uso: primera pasada solo con la parte principal; la profundización y el ejercicio, en la segunda visita al bloque (el repaso espaciado del bloque 0).
+
 ---
 
 ## [Bloque 0 — Mapa mental antes de empezar](00-mapa-mental.md)

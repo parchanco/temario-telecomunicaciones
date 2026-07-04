@@ -35,3 +35,42 @@ Esta tensión —acoplamiento y simplicidad vs. resiliencia y complejidad— es 
 ## Consistencia eventual, en una frase
 
 Cuando eliges disponibilidad sobre consistencia estricta (CAP), el sistema normalmente ofrece **consistencia eventual**: garantiza que, si dejas de escribir datos nuevos, todas las réplicas **acabarán** convergiendo al mismo valor — pero no te dice cuánto tiempo tardarán en hacerlo. Es la razón por la que, a veces, subes una foto de perfil y durante unos segundos algunos de tus amigos la ven y otros todavía ven la antigua: distintas réplicas del sistema aún no se han sincronizado entre sí.
+
+---
+
+## Profundización
+
+### Idempotencia: la propiedad que hace seguros los reintentos
+
+El problema más traicionero de los sistemas distribuidos cabe en una frase: **cuando una petición no recibe respuesta, es imposible saber si no llegó o si se ejecutó y se perdió la confirmación**. Si reintentas un "cobra 50€" que sí se había ejecutado, cobras 100€; si no reintentas y no se había ejecutado, no cobras nada. No hay forma de distinguir los casos desde fuera — es una limitación fundamental, no un bug.
+
+La salida es hacer que reintentar sea inofensivo: una operación es **idempotente** si ejecutarla N veces equivale a ejecutarla una. Algunas lo son de nacimiento ("pon el estado en 'enviado'"); las que no ("suma 50€"), se convierten con una **clave de idempotencia**: el cliente genera un identificador único por operación y el servidor recuerda los ya procesados, respondiendo a los duplicados con el resultado original sin re-ejecutar. Es exactamente lo que hace el header `Idempotency-Key` de la API de Stripe, y el motivo por el que los mensajes de una cola (bloque 11) se entregan "al menos una vez" y tus consumidores deben tolerar duplicados: el mítico "exactly-once" a través de una red no fiable es, en general, este mismo problema disfrazado — lo que existe en la práctica es "al menos una vez + idempotencia".
+
+La regla de diseño que se deriva, y que vale oro en cualquier backend: **todo endpoint que pueda ser reintentado (o sea, todos) debería ser idempotente o rechazar duplicados explícitamente.**
+
+### El tiempo es una ilusión (distribuida)
+
+Segunda trampa fundamental: **no existe "la misma hora" en dos máquinas**. Cada reloj físico deriva, NTP los sincroniza solo hasta cierto punto (milisegundos en el mejor caso, y con saltos), así que ordenar eventos de máquinas distintas por su timestamp es una lotería — dos escrituras separadas por microsegundos reales pueden llevar timestamps en orden inverso.
+
+Las dos salidas conceptuales: (1) **relojes lógicos** (Lamport): renunciar al tiempo físico y usar contadores que solo garantizan respetar la causalidad — "si A causó B, A tiene número menor" — suficiente para muchísimos casos; (2) la fuerza bruta elegante de Google Spanner: relojes atómicos y GPS (bloque 16 — otra vez GPS como servicio de tiempo) en cada centro de datos, más una API que devuelve el tiempo **como intervalo de incertidumbre** y espera a que el intervalo pase antes de confirmar. La lección transferible aunque nunca toques Spanner: cuando dos servicios discuten sobre "qué pasó primero", el timestamp no es un árbitro fiable; necesitas causalidad explícita (versiones, secuencias) o un único punto de ordenación.
+
+### Backpressure: qué pasa cuando el consumidor no da abasto
+
+Toda cadena productor → cola → consumidor tiene una pregunta incómoda: ¿qué pasa si el productor genera más rápido de lo que el consumidor procesa, de forma sostenida? La cola amortigua ráfagas, pero contra un desequilibrio sostenido solo pospone el colapso (memoria/disco infinitos no existen). Las únicas tres respuestas posibles: **frenar al productor** (backpressure real — que la presión "suba" hacia atrás hasta quien genera), **descartar** con criterio (¿los mensajes más viejos? ¿los menos importantes? — la voz sobre UDP del bloque 16 eligió esto), o **escalar consumidores** (bloque 13, si el cuello de botella lo permite). Un sistema que no ha elegido conscientemente una de las tres la tiene elegida por defecto: caerse. Es la versión software de la congestión de redes del bloque 5 — TCP lleva 40 años haciendo backpressure (control de flujo y congestión) y por eso internet no colapsa cada tarde.
+
+## Ejercicio práctico
+
+Diseña sobre papel (15 minutos, sin código) el endpoint `POST /transferencias` de un banco ficticio, respondiendo explícitamente:
+
+1. El cliente hace la petición y se le corta el WiFi antes de recibir respuesta. ¿Qué debe hacer su app: reintentar, preguntar, rendirse? ¿Qué necesita del servidor para que reintentar sea seguro?
+2. ¿Dónde guardas las claves de idempotencia ya vistas y cuánto tiempo? ¿Qué pasa si esa tabla está en una réplica con consistencia eventual? (Aquí se te juntarán las dos secciones — es a propósito.)
+3. Dos transferencias simultáneas desde la misma cuenta con saldo para una sola, procesadas por dos instancias distintas del servicio. ¿Qué mecanismo decide cuál gana?
+
+Después compara tus decisiones con la documentación de idempotencia de Stripe (es corta y excelente) — verás que un equipo de primer nivel llegó a las mismas preguntas.
+
+## Autoevaluación
+
+1. ¿Por qué es *imposible* (no difícil) saber si una petición sin respuesta se ejecutó? ¿Cuál es la única salida práctica?
+2. "Exactly-once delivery" — ¿por qué los sistemas serios prometen en cambio "al menos una vez" y qué te exige eso como consumidor?
+3. Dos servidores registran eventos con timestamps de sus relojes. ¿Por qué ordenarlos por timestamp puede violar la causalidad, y qué alternativas hay?
+4. Tu cola de trabajos crece sin parar desde hace una hora. Enumera las tres únicas familias de solución y qué pregunta de negocio decide entre ellas.

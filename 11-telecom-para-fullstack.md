@@ -53,3 +53,46 @@ Estas herramientas convierten toda la teoría anterior en algo que puedes **ver*
 - **DevTools → pestaña Network**: es, en el fondo, una versión simplificada y orientada a HTTP de las mismas ideas de Wireshark, ya integrada en el navegador que usas todos los días.
 
 Saber usar estas herramientas con soltura es donde la teoría de los bloques anteriores deja de ser abstracta y se convierte en una habilidad de debugging real.
+
+---
+
+## Profundización
+
+### SSE: la tercera opción que casi todos olvidan
+
+Entre "HTTP normal" y "WebSocket" hay un punto intermedio infrautilizado: **Server-Sent Events (SSE)**. Es una conexión HTTP normal que el servidor mantiene abierta y por la que empuja eventos de texto cuando quiere — unidireccional (solo servidor → cliente), con reconexión automática incluida en el estándar del navegador (`EventSource`), y sin protocolo nuevo que configurar en proxies y balanceadores.
+
+La guía de decisión honesta: si solo necesitas que el servidor notifique (dashboards, feeds, progreso de tareas, streaming de respuestas de un LLM — los tokens que "van apareciendo" en ChatGPT o Claude llegan por SSE o variantes), SSE es más simple y robusto que WebSocket. WebSocket se justifica cuando el cliente también emite con frecuencia (chat, juegos, edición colaborativa). Un clásico de sobre-ingeniería es montar WebSocket, con toda su gestión de estado y reconexión manual, para algo que era un caso de SSE.
+
+### Caché HTTP: el sistema distribuido que ya usas sin saberlo
+
+La capa de rendimiento más rentable del desarrollo web es también la peor entendida. El modelo mental correcto, con las cabeceras clave:
+
+- **`Cache-Control: max-age=N`**: "esta respuesta es válida N segundos" — durante ese tiempo, el navegador (o el CDN) ni siquiera pregunta al servidor. Máxima velocidad, riesgo de servir contenido viejo.
+- **`ETag` + validación**: la respuesta lleva una huella (conceptualmente, un hash — bloque 9); cuando caduca, el cliente pregunta "¿sigue siendo la versión `abc123`?" y el servidor responde `304 Not Modified` (sin cuerpo, casi gratis) o la versión nueva. Cambias transferencia por un RTT (bloque 5).
+- **El patrón que resuelve el dilema**: assets con hash en el nombre (`app.9f8e2.js`) y caché infinita — si el contenido cambia, cambia el nombre, así que nunca se sirve nada viejo — más HTML sin caché (o con validación) que referencia esos nombres. Es lo que hace tu bundler, y ahora sabes por qué.
+
+La conexión conceptual: la caché HTTP es **consistencia eventual elegida a mano** (bloque 12) — con `max-age` estás decidiendo, cabecera a cabecera, cuánta "vejez" toleras a cambio de velocidad. El mismo trade-off de CAP, en miniatura y bajo tu control directo.
+
+### gRPC y los formatos binarios: cuándo JSON deja de ser gratis
+
+**gRPC** empaqueta una idea triple: contratos tipados definidos en un fichero (`.proto`) de los que se genera código cliente y servidor, serialización binaria compacta (Protobuf — volviendo al bloque 2: JSON tiene muchísima redundancia; un formato binario con esquema conocido está mucho más cerca de la entropía real de los datos), y HTTP/2 debajo (multiplexación y streaming bidireccional de serie).
+
+La guía de decisión: entre microservicios internos con mucho tráfico, gRPC gana (menos bytes, menos CPU de parseo, contratos que rompen en compilación en vez de en producción). Hacia navegadores y APIs públicas, REST/JSON sigue ganando por legibilidad, depurabilidad (`curl` y a mirar) y ecosistema. El error a evitar es el cargo-cult en ambas direcciones: gRPC "porque es lo moderno" en una API pública, o JSON "porque siempre" entre dos servicios que se intercambian millones de mensajes por segundo.
+
+## Ejercicio práctico
+
+1. **Desglosa una petición por fases**, con la teoría del bloque 5 visible:
+   ```bash
+   curl -w "DNS: %{time_namelookup}s | TCP: %{time_connect}s | TLS: %{time_appconnect}s | primer byte: %{time_starttransfer}s | total: %{time_total}s\n" -o /dev/null -s https://github.com
+   ```
+   Ejecútalo dos veces seguidas y compara: la segunda reutiliza caché DNS. Pruébalo contra un servidor lejano geográficamente y verás la latencia física del bloque 4 en cada fase.
+2. **Audita la caché de tu propio proyecto**: abre DevTools → Network en una app tuya, recarga, y clasifica cada recurso: ¿cuáles vienen "(from disk cache)", cuáles devuelven 304, cuáles se re-descargan enteros sin necesidad? Es raro el proyecto que no tiene algo mal aquí.
+3. **Mira SSE en vivo**: abre DevTools en cualquier chat con un LLM (ChatGPT, Claude) mientras genera una respuesta larga — en Network verás la conexión de streaming y los eventos llegando token a token.
+
+## Autoevaluación
+
+1. Un cliente te pide "notificaciones en tiempo real" en un dashboard de solo lectura. ¿SSE, WebSocket o long polling? Defiende la elección y di qué te haría cambiarla.
+2. ¿Por qué HTTP/3 abandonó TCP? Explica el head-of-line blocking con un ejemplo de una página que carga 20 recursos.
+3. Explica el patrón "hash en el nombre + caché infinita" y por qué elimina el clásico "dile al usuario que borre caché".
+4. ¿En qué sentido preciso configurar `Cache-Control` es tomar una decisión del teorema CAP?

@@ -30,3 +30,36 @@ Algunos de los ataques más comunes, entendidos a nivel conceptual:
 - **DDoS (Distributed Denial of Service, denegación de servicio distribuida)**: en vez de intentar robar información, el objetivo es **saturar** un servicio con tantas peticiones (a menudo desde miles de dispositivos comprometidos a la vez) que deja de poder atender a los usuarios legítimos — es como bloquear la entrada de una tienda con una multitud de gente que no compra nada, para que los clientes reales no puedan entrar.
 
 La idea de fondo que une a los tres: en redes, casi ningún atacante necesita "romper" la criptografía matemáticamente — es mucho más habitual explotar la ausencia de cifrado (sniffing), la ausencia de verificación de identidad (spoofing), o simplemente la limitación física de capacidad de un sistema (DDoS). Por eso las defensas prácticas (cifrado por defecto, autenticación mutua, límites de tasa y filtrado) atacan precisamente esos tres puntos.
+
+---
+
+## Profundización
+
+### Hashing: la tercera pata que faltaba
+
+Junto al cifrado simétrico y asimétrico hay una tercera primitiva, distinta de ambas: el **hash criptográfico** (SHA-256 y familia). Un hash convierte cualquier entrada en una "huella" de tamaño fijo, con dos propiedades clave: es **irreversible** (de la huella no se puede reconstruir la entrada — no es cifrado, no hay clave ni "descifrado" posible) y **cualquier cambio mínimo en la entrada produce una huella completamente distinta**.
+
+Para qué sirve cada primitiva, en una línea: **cifrar = confidencialidad** (que no lo lean), **hash = integridad** (detectar si algo cambió), **firmar = autenticidad** (probar quién lo emitió). Los usos del hash que te cruzas a diario: verificar que una descarga no se corrompió, los identificadores de commit de git (cada commit *es* el hash de su contenido — por eso no se puede reescribir historia sin que se note), y el almacenamiento de contraseñas: un servicio bien hecho **nunca guarda tu contraseña**, guarda su hash (reforzado con *salt* — un valor aleatorio por usuario que impide atacar todas las cuentas a la vez con tablas precalculadas — y con funciones deliberadamente lentas como bcrypt para encarecer la fuerza bruta). Cuando una web "te recuerda tu contraseña" en texto, ya sabes que la guarda mal.
+
+### Firmas digitales y la cadena de confianza completa
+
+Con hash + cifrado asimétrico se construye la **firma digital**: se calcula el hash del documento y se cifra **con la clave privada** (al revés del uso normal). Cualquiera puede descifrar con la clave pública y comparar hashes: si coinciden, el documento no cambió **y** solo el dueño de la privada pudo firmarlo. Autenticidad e integridad de un golpe.
+
+Esto cierra el hueco que quedaba en la explicación de los certificados TLS: un certificado es la clave pública de un sitio **firmada por una Autoridad de Certificación (CA)**, cuya clave pública viene a su vez firmada en una cadena que termina en un pequeño conjunto de **certificados raíz preinstalados** en tu sistema operativo y navegador. Toda la seguridad de la web descansa, en última instancia, en esa lista de raíces y en que las CAs solo firmen a quien demuestre controlar el dominio — por eso el compromiso de una CA es un incidente global, y por eso existe *certificate transparency* (registros públicos y auditables de cada certificado emitido, donde un dominio puede detectar que alguien emitió certificados suyos sin permiso).
+
+### Cifrado de extremo a extremo: dónde termina TLS
+
+Distinción importante que TLS no cubre: TLS protege el tramo **cliente-servidor**, pero el servidor ve el contenido en claro. En WhatsApp o Signal, el **cifrado de extremo a extremo (E2E)** va más allá: las claves se generan y viven **solo en los dispositivos de los extremos**, y el servidor transporta únicamente material cifrado que no puede leer. La consecuencia estructural: el proveedor *no puede* entregar el contenido de las conversaciones ni aunque quiera o le obliguen — no por política, sino por diseño (aunque los **metadatos** — quién habla con quién, cuándo, cuánto — normalmente siguen siendo visibles, y son más reveladores de lo que parece). Todo el debate político recurrente sobre "puertas traseras" en mensajería es exactamente sobre esto: no se puede debilitar E2E "solo para los malos", porque la matemática es la misma para todos.
+
+## Ejercicio práctico
+
+1. **Inspecciona una cadena de confianza real**: en tu navegador, haz clic en el candado de cualquier web HTTPS → ver certificado. Recorre la cadena completa (sitio → CA intermedia → raíz), mira las fechas de validez y localiza esa raíz en el almacén de confianza de tu sistema. O desde terminal: `openssl s_client -connect github.com:443 -showcerts | head -40`.
+2. **Toca un hash**: `echo "hola" | shasum -a 256` y luego `echo "holA" | shasum -a 256` — un bit de diferencia en la entrada, huella irreconociblemente distinta. Es la propiedad sobre la que se apoya todo lo anterior (y git, que usas a diario).
+3. **Ve el sniffing con tus ojos**: con Wireshark capturando, visita una web HTTP plana (queda alguna, p. ej. `http://neverssl.com`) y busca el contenido legible en los paquetes; repite con una HTTPS y compara. Cinco minutos que valen por todo el argumento de "cifrado por defecto".
+
+## Autoevaluación
+
+1. Completa el mapa: confidencialidad, integridad, autenticidad — ¿qué primitiva resuelve cada una y por qué no son intercambiables?
+2. ¿Por qué un servicio nunca debe poder decirte tu contraseña? ¿Qué son el salt y la lentitud deliberada, y qué ataque frustra cada uno?
+3. Traza la cadena completa de por qué tu navegador confía en tu banco, empezando por "hay una lista preinstalada en mi sistema operativo".
+4. ¿Qué puede leer el servidor de WhatsApp de tus mensajes, y qué puede leer tu operador de red? Distingue contenido y metadatos.

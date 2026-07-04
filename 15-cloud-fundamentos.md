@@ -71,3 +71,39 @@ Tres tipos que cubren casi todo:
 ## El modelo de costes: la factura como métrica de arquitectura
 
 En cloud, cada decisión de arquitectura es también una decisión económica, y hay un coste que sorprende a todo el mundo la primera vez: **la salida de datos (egress)**. Meter datos en la nube es gratis o casi; **sacarlos** (hacia internet, o entre regiones) se cobra por gigabyte. Esto tiene una consecuencia directa de diseño: las arquitecturas tienden a procesar los datos donde ya están, en vez de moverlos — la misma lógica del edge computing del bloque 10, esta vez impuesta por la factura en vez de por la latencia. Una arquitectura que en el diagrama parece limpia puede ser económicamente inviable si mueve terabytes entre regiones cada día.
+
+---
+
+## Profundización
+
+### Infraestructura como código: la red que vive en un repositorio
+
+El cambio de práctica más importante del cloud no es ningún servicio, sino cómo se crea la infraestructura: en vez de hacer clics en una consola web, se **declara en ficheros de texto** (Terraform, CloudFormation, Pulumi) lo que debe existir — "una VPC con estas subredes, este balanceador, estas reglas" — y una herramienta compara ese estado deseado con la realidad y aplica la diferencia.
+
+Las consecuencias, que como desarrollador reconocerás al vuelo porque son las de git aplicadas a infraestructura: entornos **reproducibles** (levantar un clon de producción para pruebas es ejecutar el mismo código con otras variables), cambios **revisables** (una regla de firewall nueva pasa por pull request — el bloque 9 encontrándose con el code review), historial y rollback, y el fin de la infraestructura-misterio que solo entendía la persona que ya no está en la empresa. El modelo mental profundo es el **declarativo vs imperativo**: no describes los pasos, describes el destino, y la herramienta calcula el camino — exactamente el mismo principio de Kubernetes (bloque 13) y del SDN (bloque 10): un plano de control que reconcilia realidad con intención.
+
+### Vendor lock-in: el precio real de la comodidad
+
+Cada servicio gestionado que adoptas es un intercambio silencioso: menos operación hoy, más coste de salida mañana. No todo ata igual, y conviene distinguirlo: cómputo y contenedores son bastante portables (un contenedor corre en cualquier parte — bloque 13); las bases de datos atan por gravedad de los datos (mover terabytes cuesta egress, tiempo y riesgo); y lo que más ata son los **servicios "sin equivalente"** — si tu arquitectura entera está expresada en Lambda + DynamoDB + colas propietarias, migrar no es mover código sino rediseñar.
+
+La postura madura no es "evita el lock-in" (los servicios gestionados son precisamente el valor del cloud — rechazarlos por principio es pagar el cloud sin cobrar su beneficio) sino **decidir conscientemente qué te ata y a cambio de qué**. El multi-cloud como estrategia defensiva suena bien en las presentaciones y en la práctica suele significar pagar la complejidad de dos proveedores para usar el mínimo común de ambos; la redundancia real que casi todos necesitan es multi-región dentro de un proveedor, no multi-proveedor.
+
+### Los pilares de una buena arquitectura (el resumen del resumen)
+
+Todos los proveedores publican un marco de "well-architected" con los mismos cinco o seis pilares; como mapa mental, valen para revisar cualquier diseño, cloud o no: **seguridad** (mínimo privilegio, cifrado — bloques 9 y este), **fiabilidad** (asumir que todo falla y diseñar para ello — bloques 12 y 14: multi-AZ, reintentos idempotentes, presupuestos de error), **rendimiento** (medir antes de optimizar — bloque 14), **coste** (el egress, el autoescalado bien dimensionado, apagar lo que no se usa), y **excelencia operativa** (infraestructura como código, observabilidad, automatización). La utilidad práctica: ante cualquier decisión de arquitectura, pasar la lista de cinco preguntas detecta el pilar que estás descuidando — casi siempre hay uno, y casi siempre es coste u operación.
+
+## Ejercicio práctico
+
+Dimensiona y presupuesta, en papel, una app real — el mejor antídoto contra el "en cloud todo es barato/carísimo" sin números:
+
+1. Toma una app tipo: API + base de datos + frontend estático, 10.000 usuarios/día, ~1 MB de transferencia media por visita.
+2. Con la calculadora de precios de AWS (calculator.aws), estima tres arquitecturas: (a) una VM mediana con todo dentro, (b) contenedores gestionados + base de datos gestionada multi-AZ, (c) serverless + DynamoDB + S3/CloudFront.
+3. Anota tres cifras por opción: coste mensual, coste si el tráfico se multiplica por 10 de golpe, y horas/mes de operación humana que estimas. Observa cómo (a) gana en precio base, (c) gana en elasticidad y operación, y (b) queda en medio — las cinco disyuntivas del bloque 0, con euros.
+4. Extra: localiza en tu estimación cuánto pesa el egress. Suele ser la sorpresa.
+
+## Autoevaluación
+
+1. ¿Qué significa "declarativo" en infraestructura como código y qué otras dos tecnologías de este temario usan el mismo principio de reconciliación?
+2. ¿Por qué "multi-cloud por si acaso" suele ser mala estrategia y qué redundancia resuelve de verdad el caso común?
+3. Ordena de menos a más lock-in: contenedores, funciones serverless con servicios propietarios, base de datos gestionada compatible con PostgreSQL. Justifica.
+4. Tu app funciona perfecta en una AZ, en una región, sin copias de seguridad probadas. ¿Qué pilares estás violando y cuál es el fallo más barato de corregir hoy?

@@ -36,3 +36,42 @@ Los satélites de comunicaciones clásicos son **geoestacionarios (GEO)**: orbit
 Las constelaciones de **satélites de órbita baja (LEO, Low Earth Orbit)**, como Starlink, orbitan a unos pocos cientos de kilómetros de altura — mucho más cerca, lo que reduce la latencia a niveles comparables con una conexión terrestre normal. El precio a pagar: a esa altura, un solo satélite no puede "quedarse quieto" sobre un punto (se mueve rápido respecto a la superficie), así que hace falta una **constelación de muchísimos satélites** trabajando en conjunto, de forma que siempre haya alguno visible sobre cualquier punto de la Tierra, con el sistema en tierra "entregando" la conexión de un satélite al siguiente a medida que se mueven — un concepto que recuerda directamente al handover entre células del bloque 6, aplicado esta vez entre satélites en vez de entre antenas terrestres.
 
 Esto es lo que ha hecho viable, por primera vez, ofrecer internet satelital con una experiencia razonablemente parecida a la terrestre en zonas rurales o remotas sin cobertura de fibra o móvil — a costa de una infraestructura mucho más compleja (miles de satélites en vez de unos pocos) que las constelaciones geoestacionarias tradicionales.
+
+---
+
+## Profundización
+
+### Open RAN: abrir la caja negra de las estaciones base
+
+Tradicionalmente, una estación base era un producto cerrado de un único fabricante (Ericsson, Nokia, Huawei): radio, procesado y software venían soldados en un paquete, y mezclar piezas de fabricantes distintos era imposible. **Open RAN** es el movimiento por estandarizar las interfaces *internas* de la estación base, de forma que la radio de un fabricante funcione con el software de otro sobre servidores genéricos de un tercero.
+
+Es exactamente la misma jugada de SDN/NFV, un nivel más abajo — y las razones de que importe van más allá de lo técnico: reduce la dependencia de un puñado de proveedores (un asunto abiertamente geopolítico tras los vetos a Huawei en redes occidentales), y baja la barrera de entrada a fabricantes nuevos. El contrapunto escéptico, que también hay que conocer: integrar piezas de varios proveedores traslada al operador un trabajo de integración y depuración que antes hacía el fabricante, y los despliegues reales han ido más lentos que el entusiasmo de las presentaciones. Un patrón que reconocerás del software: "desacoplar componentes" siempre suena gratis y nunca lo es.
+
+### IA en la gestión de redes: la red que se ajusta sola
+
+Una red móvil moderna tiene miles de parámetros por célula (potencias, umbrales de handover, inclinación eléctrica de antenas...) que tradicionalmente ajustaban ingenieros a mano, célula a célula. La tendencia fuerte es cerrar ese lazo con aprendizaje automático: modelos que predicen la demanda de tráfico por zona y hora (apagando parcialmente células de madrugada para ahorrar energía — el consumo eléctrico de la RAN es uno de los mayores costes de un operador), que optimizan handovers y beamforming por usuario, y que detectan anomalías antes de que generen quejas. En 6G la intención declarada es que la IA no sea una herramienta *sobre* la red sino parte del diseño *de* la red. La conexión con tu mundo: es el mismo movimiento que la observabilidad del bloque 14 — de dashboards que mira un humano a sistemas que actúan solos sobre las métricas — con los mismos riesgos (un modelo que optimiza la métrica equivocada, a escala de red nacional).
+
+### Comunicación cuántica y QKD, sin humo
+
+Dos cosas distintas que se confunden bajo la palabra "cuántico":
+
+- **La amenaza**: un ordenador cuántico suficientemente grande rompería el cifrado asimétrico actual (RSA, curvas elípticas — bloque 9), cuya seguridad depende de problemas matemáticos que ese hardware resolvería rápido. No existe aún tal máquina, pero el riesgo es real por adelantado: un adversario puede **grabar hoy tráfico cifrado y descifrarlo dentro de 15 años** ("harvest now, decrypt later"). La respuesta pragmática de la industria no es cuántica sino matemática: la **criptografía post-cuántica** — algoritmos clásicos nuevos, resistentes a ese ataque, ya estandarizados (NIST, 2024) y ya desplegándose en TLS (Chrome y Cloudflare los negocian hoy). Esto es lo que te afectará como desarrollador.
+- **QKD (distribución cuántica de claves)**: usar propiedades cuánticas de fotones individuales para repartir claves de forma que *cualquier intento de escucha se detecta físicamente* (medir un fotón lo altera). Es real y funciona — hay enlaces comerciales y hasta un satélite chino que lo demostró a escala intercontinental — pero exige fibra dedicada o visión directa, distancias limitadas y hardware exótico. Veredicto honesto: nicho para enlaces gubernamentales y financieros críticos; la web seguirá protegiéndose con post-cuántica clásica.
+
+### Redes privadas 5G: el 5G que no ves
+
+Quizá el caso de uso más real del 5G "industrial": fábricas, puertos y minas desplegando **su propia red 5G** — sus antenas, su core (virtualizado, a menudo en un rack local — NFV y edge de este mismo bloque), y en varios países espectro reservado para uso industrial sin pasar por un operador. El porqué frente a WiFi: garantías de latencia y fiabilidad (slicing real, porque controlas toda la red), handover sin cortes para vehículos autónomos en la planta, cobertura de kilómetros con pocas antenas y autenticación por SIM (bloque 6). Es un buen recordatorio de que las generaciones móviles ya no se diseñan solo para teléfonos.
+
+## Ejercicio práctico
+
+Ancla estas tendencias a la realidad verificable:
+
+1. Comprueba la criptografía post-cuántica **en tu propio navegador**: visita una web servida por Cloudflare con Chrome/Edge recientes, abre DevTools → Security (o usa `https://pq.cloudflareresearch.com/`) y verifica si tu conexión ya negoció intercambio de claves híbrido post-cuántico (verás algo como "X25519MLKEM768"). Es tendencia de este bloque, funcionando hoy en tu máquina.
+2. En un rastreador de vuelos que muestre satélites (o la app Find Starlink), localiza cuándo pasa un "tren" de Starlink visible sobre tu ciudad y sal a verlo: esa fila de puntos moviéndose coordinadamente es la constelación LEO del bloque, con su handover entre satélites ocurriendo mientras la miras.
+
+## Autoevaluación
+
+1. Network slicing: ¿qué hace posible técnicamente que existan "varias redes" sobre el mismo hardware? Conéctalo con NFV y con el service mesh del bloque 13.
+2. ¿Por qué "harvest now, decrypt later" convierte un riesgo futuro en un problema presente, y cuál es la respuesta que ya se está desplegando?
+3. Un puerto industrial evalúa WiFi 6 frente a 5G privado para sus grúas autónomas. Da dos argumentos técnicos para cada opción.
+4. ¿Qué promete Open RAN y cuál es su coste oculto? ¿A qué patrón del mundo del software te recuerda?

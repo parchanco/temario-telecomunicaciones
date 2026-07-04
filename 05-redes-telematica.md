@@ -68,3 +68,39 @@ Tres métricas que se confunden a menudo pero miden cosas distintas:
 - **Jitter**: la variación de la latencia de un paquete a otro — no es que todo llegue tarde, es que el retraso es inconsistente (unas veces 20 ms, otras 200 ms).
 
 Por qué importa distinguirlas: para **descargar un archivo grande**, lo único que importa de verdad es el throughput — puedes esperar unos segundos más y da igual. Para una **videollamada o una partida online**, el throughput necesario es relativamente bajo, pero la latencia y sobre todo el **jitter** son críticos — un audio que llega "a trompicones" (jitter alto) es mucho más molesto que un audio algo más lento pero constante. **QoS (Quality of Service)** es precisamente el conjunto de técnicas para priorizar tráfico según qué métrica le importa más a cada aplicación (por ejemplo, dando prioridad a los paquetes de voz sobre los de una descarga en segundo plano dentro de la misma red).
+
+---
+
+## Profundización
+
+### NAT: el parche que sostiene internet
+
+Las direcciones IPv4 son números de 32 bits: unos 4.300 millones posibles, muchos menos que dispositivos conectados existen. **NAT (Network Address Translation)** es el parche que lo hace funcionar: tu router tiene **una** IP pública, y todos los dispositivos de tu casa usan IPs privadas (los rangos `192.168.x.x`, `10.x.x.x`) que solo tienen sentido dentro de tu red. Cuando tu portátil sale a internet, el router **reescribe** cada paquete — sustituye la IP privada de origen por su IP pública y apunta en una tabla "esta conversación era del portátil" para saber a quién entregar las respuestas.
+
+Dos consecuencias que ya te has cruzado: (1) desde fuera **nadie puede iniciar una conexión hacia tu portátil** — el router no sabría a quién entregarla; es una seguridad accidental, pero es la razón de que "abrir puertos" exista y de todo el circo STUN/TURN de WebRTC (bloque 11); (2) **IPv6** existe precisamente para eliminar esta escasez (direcciones de 128 bits: prácticamente infinitas, cada dispositivo puede tener IP pública propia) — y su adopción lleva 25 años siendo lenta porque NAT hizo el problema lo bastante soportable como para que nadie tuviera urgencia. Una lección de ingeniería en sí misma: un buen parche puede retrasar décadas la solución correcta.
+
+### DHCP y ARP: los dos protocolos invisibles que usas cada día
+
+Cuando tu portátil se conecta a un WiFi, antes de poder hacer nada ocurren dos conversaciones automáticas que nadie ve:
+
+- **DHCP**: el portátil grita a la red "¿alguien me da una IP?" y el router le asigna una, junto con la máscara de red, la puerta de enlace y el servidor DNS a usar. Es la razón de que conectarse a una red sea "automático" — en los 90 se configuraba todo eso a mano.
+- **ARP**: dentro de una red local, los paquetes se entregan realmente por dirección MAC (capa de enlace), no por IP. ARP es el protocolo con el que un dispositivo pregunta "¿quién tiene la IP 192.168.1.1? dime tu MAC" para poder entregarle tramas físicamente. Casi ningún desarrollador lo conoce hasta que un ataque de *ARP spoofing* (alguien respondiendo "yo soy el router" para interceptar tráfico, bloque 9) se lo presenta.
+
+### El handshake TCP y por qué la latencia se paga varias veces
+
+Antes de que TCP transporte un solo byte útil, cliente y servidor negocian en tres pasos (SYN → SYN-ACK → ACK): un viaje de ida y vuelta completo (1 RTT) "perdido" en saludos. Si encima hay TLS, la negociación criptográfica añade más viajes. Consecuencia práctica que conecta con los bloques 11 y 14: **en conexiones nuevas, la latencia se paga multiplicada** — con 100 ms de RTT, el primer byte útil de una petición HTTPS nueva puede tardar 300-400 ms aunque el servidor responda instantáneamente. Por eso existen keep-alive, la reutilización de conexiones, y por eso QUIC (HTTP/3) fusionó el handshake de transporte con el de cifrado en un solo viaje: no es optimización esotérica, es atacar directamente esta multiplicación.
+
+## Ejercicio práctico
+
+Tres comandos desde tu terminal, mirando lo que ya usas a diario:
+
+1. `traceroute google.com` (o `mtr google.com`): cuenta los saltos. Los primeros serán tu router (IP privada — ahí está NAT) y la red de tu operador; observa cómo crece la latencia por tramos.
+2. `dig google.com` y luego `dig google.com @1.1.1.1`: la misma pregunta a tu DNS por defecto y al de Cloudflare. Compara tiempos de respuesta y fíjate en el TTL — cuánto tiempo se puede cachear esa respuesta.
+3. `curl -v https://google.com 2>&1 | head -30`: identifica en la salida las fases que ahora conoces — resolución DNS, conexión TCP, negociación TLS, y solo al final la petición HTTP en sí.
+
+## Autoevaluación
+
+1. ¿Por qué internet eligió paquetes en vez de circuitos? ¿Qué se sacrificó a cambio?
+2. Explica por qué detrás de un NAT puedes navegar sin problema pero no puedes alojar un servidor sin "abrir puertos".
+3. Una app de videollamada va mal con jitter alto pero una descarga va perfecta en la misma red. ¿Por qué?
+4. ¿Cuántos viajes de ida y vuelta paga la primera petición HTTPS a un dominio nuevo, y qué tres mecanismos existen para no volver a pagarlos?

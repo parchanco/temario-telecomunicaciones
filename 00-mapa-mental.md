@@ -32,3 +32,35 @@ Un patrón que se repite constantemente en telecomunicaciones es dividir un prob
 > Cada capa resuelve un problema concreto y le oculta esa complejidad a la capa de arriba.
 
 Ejemplo: a la aplicación que pides un vídeo no le importa si el bit físico viajó por WiFi, fibra o 5G — eso lo resuelven capas inferiores. Este patrón de "abstracción por capas" aparece una y otra vez: en redes, en sistemas de comunicación, en el propio software. Reconocerlo te ahorra mucha confusión más adelante.
+
+---
+
+## Profundización
+
+### Las cinco disyuntivas que se repiten en todo el temario
+
+Casi todos los conceptos que vas a ver son variaciones de un puñado de compromisos fundamentales. Tenerlos identificados desde el principio convierte el temario en algo mucho más pequeño de lo que parece:
+
+1. **Velocidad vs robustez**: más bits por símbolo = más rápido pero más frágil ante ruido (modulación, bloque 2). Aparece también en TCP vs UDP, en códecs, en FEC.
+2. **Alcance vs capacidad**: frecuencias bajas llegan lejos pero llevan poco; frecuencias altas llevan mucho pero llegan cerca (bloque 4). Aparece en 5G, en WiFi de 2.4 vs 5 GHz, en LoRa vs NB-IoT.
+3. **Dedicado vs compartido**: reservar recursos garantiza calidad pero desperdicia capacidad; compartir dinámicamente aprovecha mejor pero sin garantías (circuitos vs paquetes, bloque 5). Aparece en QoS, en cloud, en autoescalado.
+4. **Control vs comodidad**: cada capa de abstracción te quita trabajo y te quita opciones a la vez (IaaS vs PaaS, serverless vs contenedores, bloque 15).
+5. **Consistencia vs disponibilidad**: cuando algo está replicado y la red falla, eliges entre respuestas correctas o respuestas rápidas (CAP, bloque 12).
+
+Cuando un concepto nuevo te parezca arbitrario, pregúntate cuál de estas cinco tensiones está resolviendo — casi siempre es una de ellas.
+
+### Cómo estudiar este temario (método, no solo contenido)
+
+- **Técnica Feynman**: el criterio de las checklists ("explicarlo sin apuntes") es exactamente esto — intenta explicar el concepto en voz alta o por escrito como si se lo contaras a alguien sin formación técnica. Donde te trabes, ahí está el hueco real.
+- **Espaciado**: es mucho más eficaz tocar un bloque 3 veces en 3 semanas que estudiarlo 3 horas seguidas una vez. Las checklists sirven también para esto: repasa los ítems marcados de bloques anteriores antes de empezar uno nuevo.
+- **Ancla cada concepto a algo que ya uses**: como desarrollador, casi todo tiene un equivalente en tu día a día (los bloques 11-15 existen para eso). Un concepto anclado a experiencia propia no se olvida.
+
+## Ejercicio práctico
+
+Sin herramientas: cuéntale a alguien (o escríbelo en una nota) el viaje completo de un bit desde tu móvil hasta un servidor, con el nivel de detalle que tengas ahora. Guarda esa nota. Cuando termines el temario, repite el ejercicio sin mirar la primera versión y compáralas — es la mejor medida de progreso que existe.
+
+## Autoevaluación
+
+1. ¿Por qué dividir un sistema en capas facilita que cada una evolucione por separado? Da un ejemplo real (pista: tu app web no cambió cuando llegó el 5G).
+2. De las cinco disyuntivas, ¿cuál reconoces ya en alguna decisión técnica que hayas tomado como desarrollador?
+3. ¿En qué paso del "viaje del bit" dirías ahora mismo que tienes la imagen más borrosa? (Ese es tu próximo bloque.)
