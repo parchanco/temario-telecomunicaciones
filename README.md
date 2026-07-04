@@ -115,6 +115,46 @@ Cómo usar esto: marca cada punto con `- [x]` cuando sientas que puedes **explic
 
 ---
 
+## [Bloque 11 — De telecom a desarrollo fullstack](11-telecom-para-fullstack.md)
+
+> No es un bloque "oficial" de la carrera, pero conecta todo lo anterior con lo que usas a diario como fullstack.
+
+- [ ] WebRTC: cómo funciona una videollamada en el navegador (UDP, STUN/ICE/TURN, NAT traversal)
+- [ ] WebSockets vs HTTP tradicional vs long polling — por qué existen y cuándo usar cada uno
+- [ ] HTTP/2 y HTTP/3 (QUIC): multiplexación, head-of-line blocking, por qué QUIC va sobre UDP
+- [ ] CDN y edge networks: por qué "el nodo más cercano" reduce latencia (conexión con el bloque 4 y 10)
+- [ ] Colas de mensajes (MQTT, Kafka): multiplexación de eventos entre servicios
+- [ ] Herramientas de debug de red: `curl -v`, `dig`, Wireshark/tcpdump, `mtr`, DevTools Network
+
+---
+
+## [Bloque 12 — Sistemas distribuidos](12-sistemas-distribuidos.md)
+
+- [ ] Teorema CAP: por qué no puedes tener consistencia y disponibilidad a la vez ante una partición de red
+- [ ] Consenso (Raft/Paxos, a nivel de idea): cómo varios nodos se ponen de acuerdo en un valor
+- [ ] Comunicación síncrona vs asíncrona entre microservicios — acoplamiento vs resiliencia
+- [ ] Consistencia eventual: qué significa y por qué a veces "ves" datos desactualizados
+
+---
+
+## [Bloque 13 — Redes en contenedores y cloud](13-redes-contenedores-cloud.md)
+
+- [ ] Redes de contenedores Docker: IPs virtuales, DNS interno, mapeo de puertos
+- [ ] Kubernetes: Services, DNS interno dinámico, Ingress como puerta de entrada
+- [ ] Service mesh: sidecars, mTLS automático, circuit breakers — la idea de SDN aplicada a microservicios
+- [ ] Load balancers: round robin, menor número de conexiones, basado en salud/latencia
+
+---
+
+## [Bloque 14 — Observabilidad y rendimiento](14-observabilidad-rendimiento.md)
+
+- [ ] Percentiles de latencia (p50/p95/p99): por qué la media esconde los problemas reales
+- [ ] Tracing distribuido: seguir una petición a través de varios microservicios
+- [ ] Métricas, logs y traces: para qué sirve cada uno y por qué no se sustituyen entre sí
+- [ ] Profiling de red: descartar la red como cuello de botella antes de optimizar código
+
+---
+
 ## Orden recomendado
 
 1. Bloque 0 → 1 → 2 (la base conceptual de "cómo se comunica algo")
@@ -122,6 +162,8 @@ Cómo usar esto: marca cada punto con `- [x]` cuando sientas que puedes **explic
 3. Bloques 3, 4, 7 (la parte física/hardware) — ahora con contexto ya tienen más sentido
 4. Bloque 6 (móviles) — junta redes + radio
 5. Bloques 8, 9, 10 — cierre con temas más actuales y transversales
+6. Bloque 11 — en cuanto termines el 5, para conectar teoría con tu trabajo diario cuanto antes
+7. Bloques 12, 13, 14 — una vez tengas soltura con redes y protocolos, son la extensión natural hacia arquitectura de sistemas backend
 
 ## Notas de progreso
 
