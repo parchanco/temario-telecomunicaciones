@@ -155,6 +155,31 @@ Cómo usar esto: marca cada punto con `- [x]` cuando sientas que puedes **explic
 
 ---
 
+## [Bloque 15 — Cloud computing (fundamentos conceptuales)](15-cloud-fundamentos.md)
+
+> Agnóstico de proveedor — es el mapa conceptual sobre el que colocar lo que te enseñe tu curso de AWS.
+
+- [ ] Qué es realmente "la nube": elasticidad, pago por uso, servicios gestionados
+- [ ] IaaS vs PaaS vs SaaS: cuánta responsabilidad delegas — y el modelo de responsabilidad compartida en seguridad
+- [ ] Regiones y zonas de disponibilidad: por qué la geografía condiciona latencia, legalidad y arquitectura (conexión con CAP)
+- [ ] VPC: subredes públicas/privadas, security groups, gateways — las mismas piezas de los bloques 5, 9 y 13 con otros nombres
+- [ ] Escalado vertical vs horizontal, por qué exige apps sin estado (stateless), y autoescalado
+- [ ] Serverless: cuándo encaja y sus contrapartidas (arranque en frío, sin estado ni conexiones persistentes)
+- [ ] Almacenamiento: objetos vs bloques vs bases de datos gestionadas
+- [ ] IAM: mínimo privilegio, roles para máquinas — por qué la mayoría de brechas cloud son errores de configuración
+- [ ] Modelo de costes: por qué el egress (sacar datos) condiciona la arquitectura
+
+---
+
+## [Bloque 16 — Sistemas del mundo real: VoIP, GPS y radiodifusión](16-sistemas-mundo-real.md)
+
+- [ ] VoIP: SIP como señalización, RTP sobre UDP, códecs, jitter buffer — por qué la voz se convirtió en "una app más"
+- [ ] GPS: trilateración, el truco del cuarto satélite, y por qué todo receptor GPS es también un reloj atómico
+- [ ] Radiodifusión: el modelo uno-a-todos sin canal de retorno, OFDM en la TDT, el dividendo digital
+- [ ] Streaming vs broadcast: por qué los CDNs intentan reconstruir lo que la TDT tenía gratis
+
+---
+
 ## Orden recomendado
 
 1. Bloque 0 → 1 → 2 (la base conceptual de "cómo se comunica algo")
@@ -164,6 +189,8 @@ Cómo usar esto: marca cada punto con `- [x]` cuando sientas que puedes **explic
 5. Bloques 8, 9, 10 — cierre con temas más actuales y transversales
 6. Bloque 11 — en cuanto termines el 5, para conectar teoría con tu trabajo diario cuanto antes
 7. Bloques 12, 13, 14 — una vez tengas soltura con redes y protocolos, son la extensión natural hacia arquitectura de sistemas backend
+8. Bloque 15 (cloud) — en paralelo con tu curso de AWS: este bloque da el "por qué" conceptual y el curso el "cómo" concreto
+9. Bloque 16 — al final, como "examen" informal: si puedes explicar VoIP, GPS y la TDT con lo aprendido, el temario ha cumplido
 
 ## Notas de progreso
 
