@@ -1,200 +1,135 @@
-# Temario de estudio — Ingeniería de Sistemas de Telecomunicación
+# Telecomunicaciones, de cero a una visión de sistema
 
-> Enfoque: entender conceptos y el "por qué" de las cosas, no resolver problemas matemáticos exhaustivos. Cada bloque tiene un archivo desarrollado con explicaciones e intuición, más una checklist para marcar progreso.
+Un curso abierto para entender **cómo viaja, se transforma y se protege la información**, desde una onda electromagnética hasta una aplicación distribuida.
 
-Cómo usar esto: marca cada punto con `- [x]` cuando sientas que puedes **explicárselo a otra persona sin mirar apuntes**. Ese es el criterio de "terminado", no haber leído el capítulo.
+No pretende sustituir un grado ni una colección de problemas matemáticos. Su objetivo es construir un mapa mental sólido: entender el porqué, relacionar asignaturas que suelen estudiarse por separado y comprobar cada idea con ejemplos o herramientas accesibles desde un portátil.
 
-Cada bloque incluye además, al final del archivo: una sección de **Profundización** (conceptos de segundo nivel, una vez asentada la base), un **Ejercicio práctico** que puedes hacer desde tu portátil, y preguntas de **Autoevaluación** para comprobar el criterio de arriba. Sugerencia de uso: primera pasada solo con la parte principal; la profundización y el ejercicio, en la segunda visita al bloque (el repaso espaciado del bloque 0).
+## Qué vas a conseguir
 
----
+Al terminar deberías poder:
 
-## [Bloque 0 — Mapa mental antes de empezar](00-mapa-mental.md)
+- narrar el viaje completo de un dato desde un sensor o móvil hasta un servicio en internet;
+- explicar los compromisos entre ancho de banda, ruido, alcance, latencia, coste y fiabilidad;
+- reconocer las piezas principales de un sistema de radio, fibra, red IP y plataforma cloud;
+- usar herramientas básicas para observar señales, protocolos y rendimiento;
+- elegir un área en la que profundizar con una base común bien conectada.
 
-- [ ] Qué hace un ingeniero de telecomunicación en la práctica (roles: RF, redes, sistemas, I+D, telco vs. no-telco)
-- [ ] Panorama general: cómo un bit de información viaja desde tu móvil hasta un servidor y vuelve (capas físicas, redes, protocolos) — esto te da el "esqueleto" en el que encajará todo lo demás
+## Cómo seguir el curso
 
-**Recurso:** busca en YouTube "how does the internet work" (charlas tipo Vsauce/Branch Education) antes de meterte en teoría — da contexto visual.
+Cada bloque está diseñado como una unidad de 2 a 4 sesiones. No marques un concepto por haberlo leído: márcalo cuando puedas **explicarlo sin apuntes, poner un ejemplo y relacionarlo con otro bloque**.
 
----
+Usa este ciclo:
 
-## [Bloque 1 — Señales y sistemas (lo mínimo conceptual)](01-senales-y-sistemas.md)
+1. **Orientación (10 min):** lee objetivos y preguntas de autoevaluación antes del contenido.
+2. **Comprensión (30–45 min):** estudia la parte principal buscando la idea, no la frase exacta.
+3. **Recuperación (10 min):** cierra el archivo y explica tres conceptos de memoria.
+4. **Práctica (30–60 min):** realiza el ejercicio y conserva una evidencia breve.
+5. **Repaso:** vuelve al bloque a los 2 días, 1 semana y 1 mes.
 
-- [ ] Qué es una señal analógica vs digital, y por qué digitalizamos (ruido, regeneración, procesado)
-- [ ] Dominio del tiempo vs dominio de la frecuencia — la idea de Fourier sin la matemática: "toda señal es una suma de senos"
-- [ ] Ancho de banda: qué es y por qué limita cuánta información puedes mandar
-- [ ] Muestreo y Nyquist: por qué hay que muestrear al doble de la frecuencia máxima (idea intuitiva, no la demostración)
-- [ ] Ruido: qué es SNR y por qué es la métrica que determina casi todo en comunicaciones
+La hoja [PROGRESO.md](PROGRESO.md) reúne la checklist, los repasos y un pequeño diario de evidencias.
 
-**Recurso:** 3Blue1Brown — vídeo "But what is the Fourier Transform" (YouTube). Es la mejor explicación visual que existe, sin fórmulas pesadas.
+## Rutas recomendadas
 
----
+No hay un único orden correcto. Elige una ruta y usa los demás bloques como optativos.
 
-## [Bloque 2 — Teoría de la comunicación](02-teoria-comunicacion.md)
+### Ruta esencial — entender telecomunicaciones
 
-- [ ] Modelo básico: fuente → codificador → canal (con ruido) → decodificador → destino (Shannon)
-- [ ] Capacidad de canal: idea de que hay un límite teórico de información que cabe en un canal (sin derivar la fórmula)
-- [ ] Modulación analógica: qué es AM, FM, PM y por qué existen distintas (a nivel de "qué característica de la onda cambio")
-- [ ] Modulación digital: ASK, FSK, PSK, QAM — idea de constelaciones y por qué más bits por símbolo = más rápido pero más sensible a ruido
-- [ ] Multiplexación: FDM, TDM, CDM — cómo compartir un mismo medio entre varios usuarios
-- [ ] Codificación de canal (FEC): idea de añadir redundancia para detectar/corregir errores sin retransmitir
+`0 → 17 → 1 → 2 → 5 → 3 → 4 → 6 → 7 → 8 → 9 → 16`
 
-**Recurso:** canal de YouTube "iain explains signals systems and digital comms" — es específicamente conceptual, poco matemático.
+Es la ruta más parecida al hilo conductor de una carrera, pero manteniendo el enfoque conceptual. Añade los bloques 18 y 19 cuando quieras comprender mejor el soporte físico.
 
----
+### Ruta software, redes y cloud
 
-## [Bloque 3 — Electrónica de comunicaciones (nivel de sistema, no de circuito)](03-electronica-comunicaciones.md)
+`0 → 5 → 11 → 9 → 12 → 13 → 14 → 15 → 16`
 
-- [ ] Qué hace un transceptor de radio a bloques: antena → LNA → mezclador → filtro → ADC/DAC
-- [ ] Idea de frecuencia intermedia (heterodino) y por qué se usa
-- [ ] Amplificadores: qué es ganancia, saturación, distorsión, punto de compresión (concepto, no diseño de circuito)
-- [ ] Osciladores y PLLs: para qué sirven (generar/sincronizar frecuencias) sin el diseño interno
+Recomendada para perfiles de desarrollo. Vuelve a los bloques 1 y 2 cuando aparezcan conceptos como ancho de banda, codificación o ruido.
 
----
+### Ruta radio, electrónica y señal
 
-## [Bloque 4 — Antenas y propagación](04-antenas-propagacion.md)
+`0 → 17 → 18 → 19 → 1 → 2 → 3 → 4 → 8 → 6 → 10`
 
-- [ ] Qué es una antena conceptualmente (transductor entre corriente eléctrica y onda EM)
-- [ ] Patrón de radiación, ganancia, polarización — qué significan e implican en la práctica
-- [ ] Propagación: línea de vista, reflexión, difracción, multitrayecto (multipath) y por qué importan en ciudades/interiores
-- [ ] Atenuación con la distancia y frecuencia — por qué el 5G de ondas altas tiene menos alcance
-- [ ] Espectro radioeléctrico: por qué es un recurso regulado y escaso (bandas, licencias)
+Da prioridad a la cadena física: del campo electromagnético a los bits.
 
----
+### Ruta de grado ampliada
 
-## [Bloque 5 — Redes y telemática](05-redes-telematica.md)
+Completa las cuatro fases siguientes en orden. Incluye fundamentos y materias habituales del grado que no son exclusivamente de comunicaciones.
 
-- [ ] Modelo OSI y modelo TCP/IP: para qué sirve dividir en capas (no memorizar las 7 capas, entender el porqué de la abstracción)
-- [ ] Conmutación de circuitos vs conmutación de paquetes — por qué internet eligió paquetes
-- [ ] Direccionamiento IP, y la idea de enrutamiento (routing): cómo un paquete "sabe" el camino
-- [ ] TCP vs UDP: fiabilidad vs velocidad, y cuándo se usa cada uno
-- [ ] DNS, HTTP/HTTPS: qué resuelven a alto nivel
-- [ ] Redes de acceso: qué diferencia fibra, DSL, cable, y redes móviles (2G→5G) en términos de arquitectura, no de física profunda
-- [ ] Conceptos de QoS, latencia vs throughput vs jitter — por qué importan distinto según la aplicación (voz vs streaming vs datos)
+## Guion completo
 
-**Recurso:** "Computer Networking" de Kurose & Ross tiene capítulos muy bien explicados a nivel conceptual antes de entrar en detalle. También el canal de YouTube "PowerCert Animated Videos" para visualizar protocolos.
+### Fase 0 — Orientación y lenguaje común
 
----
+- [ ] [0. Mapa mental](00-mapa-mental.md) — el viaje de un bit y los compromisos que se repiten.
+- [ ] [17. Matemáticas para telecom](17-matematicas-para-telecom.md) — modelos, complejos, derivadas, probabilidad y Fourier.
+- [ ] [20. Programación y computadores](20-programacion-computadores.md) — del algoritmo al hardware y al dato en red.
 
-## [Bloque 6 — Redes móviles y sistemas celulares](06-redes-moviles.md)
+**Hito:** dibuja un sistema de comunicación extremo a extremo y señala dónde aparecen software, matemáticas, electrónica y red.
 
-- [ ] Idea de célula (cell) y reutilización de frecuencias — por qué las redes móviles escalan geográficamente
-- [ ] Evolución 2G → 3G → 4G → 5G: qué problema resolvió cada generación (voz → datos → banda ancha móvil → baja latencia/IoT masivo)
-- [ ] Handover/traspaso: cómo no se corta la llamada al moverte entre celdas
-- [ ] Arquitectura básica: terminal, estación base, core de red — quién hace qué
+### Fase 1 — De la realidad física a la señal
 
----
+- [ ] [18. Circuitos y electrónica](18-circuitos-electronica.md) — tensión, corriente, impedancia y componentes activos.
+- [ ] [19. Electromagnetismo](19-electromagnetismo.md) — campos, ondas, potencia y líneas de transmisión.
+- [ ] [1. Señales y sistemas](01-senales-y-sistemas.md) — tiempo, frecuencia, muestreo, ancho de banda y ruido.
+- [ ] [8. Procesado digital de señal](08-procesado-senal.md) — filtros, FFT, correlación y compresión.
+- [ ] [21. Automática y control](21-automatica-control.md) — realimentación, estabilidad y respuesta dinámica.
 
-## [Bloque 7 — Comunicaciones ópticas](07-comunicaciones-opticas.md)
+**Hito:** mide o genera una señal, obsérvala en tiempo y frecuencia y explica qué limita su medida.
 
-- [ ] Por qué la fibra óptica permite tanto ancho de banda (luz vs electricidad como portador)
-- [ ] Fibra monomodo vs multimodo — diferencia conceptual de uso (largas vs cortas distancias)
-- [ ] WDM (multiplexación por longitud de onda): idea de mandar "colores" distintos de luz simultáneamente
+### Fase 2 — Construir un enlace
 
----
+- [ ] [2. Teoría de la comunicación](02-teoria-comunicacion.md) — modulación, capacidad, multiplexación y FEC.
+- [ ] [3. Electrónica de comunicaciones](03-electronica-comunicaciones.md) — transceptor, mezclador, amplificación y sincronía.
+- [ ] [4. Antenas y propagación](04-antenas-propagacion.md) — radiación, ganancia, multitrayecto y presupuesto de enlace.
+- [ ] [7. Comunicaciones ópticas](07-comunicaciones-opticas.md) — fibra, WDM, amplificación y acceso.
+- [ ] [22. Audio, imagen y multimedia](22-audio-imagen-multimedia.md) — percepción, digitalización, compresión y calidad.
 
-## [Bloque 8 — Procesado digital de señal (a nivel de idea)](08-procesado-senal.md)
+**Hito:** compara un radioenlace, un enlace de fibra y un sistema audiovisual usando las mismas métricas básicas.
 
-- [ ] Diferencia entre procesar en analógico vs digital (por qué casi todo se hizo digital)
-- [ ] Filtros digitales: qué hace un filtro (dejar pasar/bloquear frecuencias) sin diseñar el filtro
-- [ ] Compresión: idea general de por qué el audio/vídeo se puede comprimir tanto (redundancia, percepción humana) — contexto de MP3, JPEG, códecs de vídeo
+### Fase 3 — Construir y operar una red
 
----
+- [ ] [5. Redes y telemática](05-redes-telematica.md) — capas, IP, transporte, DNS, HTTP y QoS.
+- [ ] [6. Redes móviles](06-redes-moviles.md) — células, generaciones, handover y core.
+- [ ] [9. Seguridad](09-seguridad.md) — cifrado, identidad, TLS, VPN y amenazas.
+- [ ] [10. Tendencias](10-tendencias.md) — 5G/6G, IoT, SDN/NFV y satélites LEO.
+- [ ] [16. Sistemas del mundo real](16-sistemas-mundo-real.md) — VoIP, GPS, radiodifusión y streaming.
 
-## [Bloque 9 — Seguridad en comunicaciones](09-seguridad.md)
+**Hito:** explica una videollamada móvil desde el micrófono hasta el altavoz remoto, incluyendo seguridad y posibles fallos.
 
-- [ ] Conceptos de cifrado simétrico vs asimétrico (qué problema resuelve cada uno, sin las matemáticas de RSA)
-- [ ] Qué es una VPN, un firewall, un certificado TLS — a nivel de qué protegen y de qué
-- [ ] Vectores de ataque típicos en redes (sniffing, spoofing, DDoS) — a nivel conceptual
+### Fase 4 — Conectar telecom con sistemas software
 
----
+- [ ] [11. Telecom para fullstack](11-telecom-para-fullstack.md) — WebRTC, WebSockets, QUIC, CDN y diagnóstico.
+- [ ] [12. Sistemas distribuidos](12-sistemas-distribuidos.md) — CAP, consenso, mensajería y consistencia.
+- [ ] [13. Redes en contenedores y cloud](13-redes-contenedores-cloud.md) — Docker, Kubernetes, mesh y balanceo.
+- [ ] [14. Observabilidad y rendimiento](14-observabilidad-rendimiento.md) — percentiles, métricas, logs y trazas.
+- [ ] [15. Cloud computing](15-cloud-fundamentos.md) — modelos de servicio, VPC, escalado, IAM y coste.
 
-## [Bloque 10 — Tendencias actuales (para conectar con la industria de hoy)](10-tendencias.md)
+**Hito final:** documenta el viaje de una petición en una aplicación real, mide su latencia y propone una mejora justificando sus contrapartidas.
 
-- [ ] 5G/6G: network slicing, edge computing, qué prometen realmente vs marketing
-- [ ] IoT: por qué necesita protocolos distintos (bajo consumo, bajo ancho de banda) — LoRa, NB-IoT, Zigbee a nivel de "para qué sirve cada uno"
-- [ ] SDN/NFV: la idea de "virtualizar" la red (separar hardware de la lógica de control)
-- [ ] Satélites de baja órbita (Starlink y similares): qué cambia respecto a satélites geoestacionarios
+## Criterio de finalización
 
----
+Un bloque está terminado cuando cumples al menos cuatro de estos cinco puntos:
 
-## [Bloque 11 — De telecom a desarrollo fullstack](11-telecom-para-fullstack.md)
+- [ ] Puedo resumirlo en menos de cinco minutos sin consultar el texto.
+- [ ] Puedo dibujar sus componentes y el flujo principal.
+- [ ] Puedo dar un ejemplo real y un contraejemplo.
+- [ ] He completado el ejercicio y guardado una evidencia.
+- [ ] He respondido correctamente la autoevaluación una semana después.
 
-> No es un bloque "oficial" de la carrera, pero conecta todo lo anterior con lo que usas a diario como fullstack.
+Si fallas el último punto, el bloque no está “suspendido”: vuelve a comprensión o práctica y programa un nuevo repaso.
 
-- [ ] WebRTC: cómo funciona una videollamada en el navegador (UDP, STUN/ICE/TURN, NAT traversal)
-- [ ] WebSockets vs HTTP tradicional vs long polling — por qué existen y cuándo usar cada uno
-- [ ] HTTP/2 y HTTP/3 (QUIC): multiplexación, head-of-line blocking, por qué QUIC va sobre UDP
-- [ ] CDN y edge networks: por qué "el nodo más cercano" reduce latencia (conexión con el bloque 4 y 10)
-- [ ] Colas de mensajes (MQTT, Kafka): multiplexación de eventos entre servicios
-- [ ] Herramientas de debug de red: `curl -v`, `dig`, Wireshark/tcpdump, `mtr`, DevTools Network
+## Proyecto integrador
 
----
+Elige un sistema cotidiano —una videollamada, un GPS, una red doméstica, un sensor IoT o una plataforma de streaming— y crea una ficha que incluya:
 
-## [Bloque 12 — Sistemas distribuidos](12-sistemas-distribuidos.md)
+1. diagrama de extremo a extremo;
+2. representación física y digital de la información;
+3. protocolos y equipos implicados;
+4. tres límites o fuentes de fallo;
+5. una medida observable y una mejora con sus contrapartidas.
 
-- [ ] Teorema CAP: por qué no puedes tener consistencia y disponibilidad a la vez ante una partición de red
-- [ ] Consenso (Raft/Paxos, a nivel de idea): cómo varios nodos se ponen de acuerdo en un valor
-- [ ] Comunicación síncrona vs asíncrona entre microservicios — acoplamiento vs resiliencia
-- [ ] Consistencia eventual: qué significa y por qué a veces "ves" datos desactualizados
+Haz una primera versión tras la fase 0 y actualízala después de cada fase. El cambio entre versiones será la mejor evidencia de aprendizaje del curso.
 
----
+## Alcance y contribuciones
 
-## [Bloque 13 — Redes en contenedores y cloud](13-redes-contenedores-cloud.md)
+Los bloques nuevos deben conservar la misma tónica: intuición antes que formalismo, conexiones con sistemas reales, un ejercicio realizable y preguntas que obliguen a explicar. Las fórmulas son bienvenidas cuando aclaran una relación; no cuando sustituyen la comprensión.
 
-- [ ] Redes de contenedores Docker: IPs virtuales, DNS interno, mapeo de puertos
-- [ ] Kubernetes: Services, DNS interno dinámico, Ingress como puerta de entrada
-- [ ] Service mesh: sidecars, mTLS automático, circuit breakers — la idea de SDN aplicada a microservicios
-- [ ] Load balancers: round robin, menor número de conexiones, basado en salud/latencia
-
----
-
-## [Bloque 14 — Observabilidad y rendimiento](14-observabilidad-rendimiento.md)
-
-- [ ] Percentiles de latencia (p50/p95/p99): por qué la media esconde los problemas reales
-- [ ] Tracing distribuido: seguir una petición a través de varios microservicios
-- [ ] Métricas, logs y traces: para qué sirve cada uno y por qué no se sustituyen entre sí
-- [ ] Profiling de red: descartar la red como cuello de botella antes de optimizar código
-
----
-
-## [Bloque 15 — Cloud computing (fundamentos conceptuales)](15-cloud-fundamentos.md)
-
-> Agnóstico de proveedor — es el mapa conceptual sobre el que colocar lo que te enseñe tu curso de AWS.
-
-- [ ] Qué es realmente "la nube": elasticidad, pago por uso, servicios gestionados
-- [ ] IaaS vs PaaS vs SaaS: cuánta responsabilidad delegas — y el modelo de responsabilidad compartida en seguridad
-- [ ] Regiones y zonas de disponibilidad: por qué la geografía condiciona latencia, legalidad y arquitectura (conexión con CAP)
-- [ ] VPC: subredes públicas/privadas, security groups, gateways — las mismas piezas de los bloques 5, 9 y 13 con otros nombres
-- [ ] Escalado vertical vs horizontal, por qué exige apps sin estado (stateless), y autoescalado
-- [ ] Serverless: cuándo encaja y sus contrapartidas (arranque en frío, sin estado ni conexiones persistentes)
-- [ ] Almacenamiento: objetos vs bloques vs bases de datos gestionadas
-- [ ] IAM: mínimo privilegio, roles para máquinas — por qué la mayoría de brechas cloud son errores de configuración
-- [ ] Modelo de costes: por qué el egress (sacar datos) condiciona la arquitectura
-
----
-
-## [Bloque 16 — Sistemas del mundo real: VoIP, GPS y radiodifusión](16-sistemas-mundo-real.md)
-
-- [ ] VoIP: SIP como señalización, RTP sobre UDP, códecs, jitter buffer — por qué la voz se convirtió en "una app más"
-- [ ] GPS: trilateración, el truco del cuarto satélite, y por qué todo receptor GPS es también un reloj atómico
-- [ ] Radiodifusión: el modelo uno-a-todos sin canal de retorno, OFDM en la TDT, el dividendo digital
-- [ ] Streaming vs broadcast: por qué los CDNs intentan reconstruir lo que la TDT tenía gratis
-
----
-
-## Orden recomendado
-
-1. Bloque 0 → 1 → 2 (la base conceptual de "cómo se comunica algo")
-2. Bloque 5 (redes) — es el más aplicado y motivador, ayuda a no perder el hilo
-3. Bloques 3, 4, 7 (la parte física/hardware) — ahora con contexto ya tienen más sentido
-4. Bloque 6 (móviles) — junta redes + radio
-5. Bloques 8, 9, 10 — cierre con temas más actuales y transversales
-6. Bloque 11 — en cuanto termines el 5, para conectar teoría con tu trabajo diario cuanto antes
-7. Bloques 12, 13, 14 — una vez tengas soltura con redes y protocolos, son la extensión natural hacia arquitectura de sistemas backend
-8. Bloque 15 (cloud) — en paralelo con tu curso de AWS: este bloque da el "por qué" conceptual y el curso el "cómo" concreto
-9. Bloque 16 — al final, como "examen" informal: si puedes explicar VoIP, GPS y la TDT con lo aprendido, el temario ha cumplido
-
-## Notas de progreso
-
-- Fecha de inicio:
-- Ritmo objetivo (ej. 1 bloque cada 2 semanas):
+Este material es una guía de aprendizaje y no un plan docente oficial. Cada universidad distribuye y nombra las asignaturas de forma distinta.
