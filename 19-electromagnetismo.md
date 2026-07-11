@@ -1,5 +1,9 @@
 # Bloque 19 — Electromagnetismo y líneas de transmisión
 
+[← 4. Tema anterior](18-circuitos-electronica.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [6. Tema siguiente →](01-senales-y-sistemas.md)
+
+> **Objetivo del bloque:** entender cómo campos y ondas transportan energía e información y por qué aparecen propagación, impedancia y reflexiones.
+
 Las comunicaciones por cobre, fibra y radio parecen tecnologías distintas, pero todas transportan energía e información mediante campos electromagnéticos.
 
 ## Campos eléctricos y magnéticos
@@ -55,3 +59,11 @@ Calcula la longitud de onda aproximada para radio FM, WiFi de 2,4 GHz, WiFi de 5
 3. ¿Cómo puede una antena tener ganancia sin crear energía?
 4. ¿Qué provoca una reflexión en un cable?
 5. ¿Por qué el camino de retorno importa en compatibilidad electromagnética?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 4. Tema anterior](18-circuitos-electronica.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [6. Tema siguiente →](01-senales-y-sistemas.md)

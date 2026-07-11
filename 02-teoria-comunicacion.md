@@ -1,5 +1,9 @@
 # Bloque 2 — Teoría de la comunicación
 
+[← 8. Tema anterior](21-automatica-control.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [10. Tema siguiente →](03-electronica-comunicaciones.md)
+
+> **Objetivo del bloque:** explicar cómo codificación y modulación convierten información en símbolos transmisibles dentro de los límites del canal.
+
 ## El modelo básico de Shannon
 
 Claude Shannon, en 1948, propuso un esquema que sigue siendo la base de todo sistema de comunicación moderno:
@@ -103,3 +107,11 @@ Diseña en papel (o en 20 líneas de código, si te apetece) un **código de rep
 2. ¿Qué demostró Shannon que se creía imposible antes de 1948?
 3. En una constelación 256-QAM frente a QPSK: ¿qué ganas, qué pierdes, y por qué tu WiFi cambia entre ellas sin preguntarte?
 4. ¿Por qué OFDM tolera el multitrayecto mejor que una portadora única rápida?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 8. Tema anterior](21-automatica-control.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [10. Tema siguiente →](03-electronica-comunicaciones.md)

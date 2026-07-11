@@ -1,5 +1,9 @@
 # Bloque 5 — Redes y telemática
 
+[← 13. Tema anterior](22-audio-imagen-multimedia.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [15. Tema siguiente →](06-redes-moviles.md)
+
+> **Objetivo del bloque:** seguir un paquete entre aplicación y destino explicando capas, direccionamiento, transporte, nombres y métricas de calidad.
+
 ## El modelo de capas: OSI y TCP/IP
 
 Ya se introdujo la idea en el bloque 0: dividir un problema complejo en capas independientes, donde cada capa resuelve un problema concreto y oculta esa complejidad a la capa de arriba. El **modelo OSI** (7 capas) y el **modelo TCP/IP** (4-5 capas, el que realmente se usa en internet) son formalizaciones de esa idea.
@@ -104,3 +108,11 @@ Tres comandos desde tu terminal, mirando lo que ya usas a diario:
 2. Explica por qué detrás de un NAT puedes navegar sin problema pero no puedes alojar un servidor sin "abrir puertos".
 3. Una app de videollamada va mal con jitter alto pero una descarga va perfecta en la misma red. ¿Por qué?
 4. ¿Cuántos viajes de ida y vuelta paga la primera petición HTTPS a un dominio nuevo, y qué tres mecanismos existen para no volver a pagarlos?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 13. Tema anterior](22-audio-imagen-multimedia.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [15. Tema siguiente →](06-redes-moviles.md)

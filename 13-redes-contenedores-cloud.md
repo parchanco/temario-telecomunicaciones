@@ -1,5 +1,9 @@
 # Bloque 13 — Redes en contenedores y cloud
 
+[← 20. Tema anterior](12-sistemas-distribuidos.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [22. Tema siguiente →](14-observabilidad-rendimiento.md)
+
+> **Objetivo del bloque:** seguir el tráfico por redes virtuales, descubrimiento, balanceo y políticas dentro de contenedores y Kubernetes.
+
 > Docker y Kubernetes se explican habitualmente desde el ángulo de "empaquetar aplicaciones", pero por debajo son, en gran parte, **problemas de redes** — los mismos conceptos de los bloques 5 y 6, aplicados dentro de una máquina o un clúster en vez de entre continentes.
 
 ## Redes de contenedores: cada contenedor es "otra máquina" en miniatura
@@ -77,3 +81,11 @@ Con Docker en tu máquina, 10 minutos de ver-para-creer:
 2. Recorre de memoria los cinco saltos de una petición externa hasta un pod. ¿En cuál actúa NAT? ¿En cuál se decide el balanceo?
 3. ¿Por qué un Service de Kubernetes puede repartir tráfico sin ser un proceso por el que pasen los paquetes?
 4. ¿Por qué las NetworkPolicies se definen sobre etiquetas y no sobre IPs, y qué principio del bloque 15 implementan?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 20. Tema anterior](12-sistemas-distribuidos.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [22. Tema siguiente →](14-observabilidad-rendimiento.md)

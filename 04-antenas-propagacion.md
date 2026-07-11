@@ -1,5 +1,9 @@
 # Bloque 4 — Antenas y propagación
 
+[← 10. Tema anterior](03-electronica-comunicaciones.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [12. Tema siguiente →](07-comunicaciones-opticas.md)
+
+> **Objetivo del bloque:** razonar sobre radiación, cobertura y calidad mediante patrón, polarización, multitrayecto y presupuesto de enlace.
+
 ## Qué es una antena, conceptualmente
 
 Una antena es un **transductor**: un dispositivo que convierte energía de un tipo en otro. En este caso, convierte **corriente eléctrica variable en onda electromagnética** (al transmitir) y **onda electromagnética en corriente eléctrica** (al recibir). Es exactamente la misma pieza física haciendo ambas cosas — por eso la misma antena de tu móvil transmite y recibe.
@@ -74,3 +78,11 @@ Instala una app de análisis WiFi (WiFi Analyzer en Android; en macOS mantén pu
 2. ¿Por qué MIMO funciona mejor dentro de un edificio que en un descampado con visión directa?
 3. Tu WiFi de 5 GHz va más rápido cerca del router pero peor que el de 2.4 GHz en la habitación del fondo. Explica ambas cosas con conceptos de este bloque.
 4. ¿Qué hace exactamente el beamforming y por qué es imprescindible para el 5G de ondas milimétricas?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 10. Tema anterior](03-electronica-comunicaciones.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [12. Tema siguiente →](07-comunicaciones-opticas.md)

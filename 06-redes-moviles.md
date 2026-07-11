@@ -1,5 +1,9 @@
 # Bloque 6 — Redes móviles y sistemas celulares
 
+[← 14. Tema anterior](05-redes-telematica.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [16. Tema siguiente →](09-seguridad.md)
+
+> **Objetivo del bloque:** explicar cómo una red celular comparte espectro, autentica terminales y mantiene servicio durante el movimiento.
+
 ## La idea de célula y la reutilización de frecuencias
 
 El problema que resuelven las redes móviles es sutil: hay **espectro limitado** (bloque 4) pero **millones de usuarios** que quieren usarlo a la vez, en una superficie geográfica enorme. La solución, que le da nombre a la propia tecnología, es dividir el territorio en **células** (celdas): zonas relativamente pequeñas, cada una servida por una estación base con un alcance limitado.
@@ -76,3 +80,11 @@ Tu móvil tiene un modo de ingeniería que muestra los números reales de esta a
 2. Explica el desafío-respuesta de la SIM y por qué el secreto nunca viaja por el aire. ¿Qué hace tan peligroso el SIM swapping?
 3. ¿Por qué la red no sabe en qué célula exacta estás cuando el móvil está en reposo, y qué gana con no saberlo?
 4. Estás en un concierto con cobertura "llena" e internet muerto. ¿Qué está pasando, en términos de este bloque?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 14. Tema anterior](05-redes-telematica.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [16. Tema siguiente →](09-seguridad.md)

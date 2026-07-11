@@ -1,5 +1,9 @@
 # Bloque 0 — Mapa mental antes de empezar
 
+[← README](README.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [2. Tema siguiente →](17-matematicas-para-telecom.md)
+
+> **Objetivo del bloque:** construir una visión de conjunto del viaje de la información y reconocer los compromisos básicos que reaparecerán durante todo el curso.
+
 ## Qué hace un ingeniero de telecomunicación en la práctica
 
 El título es muy amplio a propósito, y por eso en el día a día la gente se especializa en direcciones muy distintas. Conviene tener claro el mapa de salidas antes de estudiar, porque te ayuda a decidir dónde profundizar más:
@@ -64,3 +68,11 @@ Sin herramientas: cuéntale a alguien (o escríbelo en una nota) el viaje comple
 1. ¿Por qué dividir un sistema en capas facilita que cada una evolucione por separado? Da un ejemplo real (pista: tu app web no cambió cuando llegó el 5G).
 2. De las cinco disyuntivas, ¿cuál reconoces ya en alguna decisión técnica que hayas tomado como desarrollador?
 3. ¿En qué paso del "viaje del bit" dirías ahora mismo que tienes la imagen más borrosa? (Ese es tu próximo bloque.)
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← README](README.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [2. Tema siguiente →](17-matematicas-para-telecom.md)

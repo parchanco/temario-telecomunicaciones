@@ -1,5 +1,9 @@
 # Bloque 7 — Comunicaciones ópticas
 
+[← 11. Tema anterior](04-antenas-propagacion.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [13. Tema siguiente →](22-audio-imagen-multimedia.md)
+
+> **Objetivo del bloque:** explicar cómo una fibra guía luz y cómo fuentes, receptores, pérdidas, dispersión y multiplexación limitan un enlace óptico.
+
 ## Por qué la fibra permite tanto ancho de banda
 
 Una fibra óptica transmite información usando **luz** en vez de electricidad. La razón de fondo por la que esto permite tanto ancho de banda (bloque 1) es una cuestión de frecuencia: la luz que se usa en fibra óptica (infrarroja, cercana al espectro visible) oscila a frecuencias del orden de **cientos de terahercios** — muchísimo más alto que cualquier frecuencia de radio usada en comunicaciones inalámbricas (que llegan como mucho a decenas de gigahercios).
@@ -58,3 +62,11 @@ La fibra de tu casa no es un hilo dedicado hasta la central. Las redes **GPON (G
 2. ¿Cómo puede un cable submarino de hace 20 años transportar hoy cien veces más datos sin haberlo tocado?
 3. En una red GPON, ¿qué evita que veas el tráfico de bajada de tus vecinos, y qué evita que vuestras subidas colisionen? (Son dos mecanismos distintos.)
 4. ¿Por qué monomodo para largas distancias? Explica la dispersión modal con la analogía que prefieras.
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 11. Tema anterior](04-antenas-propagacion.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [13. Tema siguiente →](22-audio-imagen-multimedia.md)

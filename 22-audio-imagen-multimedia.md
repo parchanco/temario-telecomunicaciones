@@ -1,5 +1,9 @@
 # Bloque 22 — Audio, imagen y comunicaciones multimedia
 
+[← 12. Tema anterior](07-comunicaciones-opticas.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [14. Tema siguiente →](05-redes-telematica.md)
+
+> **Objetivo del bloque:** conectar percepción, muestreo, compresión, transporte y calidad de experiencia en servicios audiovisuales.
+
 Audio, imagen y vídeo conectan señales con percepción humana. Un sistema multimedia no necesita reproducir cada muestra con exactitud: necesita conservar lo que importa para la tarea y para quien lo percibe.
 
 ## Sonido y audición
@@ -57,3 +61,11 @@ Toma un audio o vídeo corto y expórtalo con tres bitrates. Compara tamaño, ar
 3. ¿Qué redundancias aprovecha un códec de vídeo?
 4. ¿Por qué un buffer mejora continuidad pero empeora interactividad?
 5. Da un caso en el que menos fidelidad produzca mejor experiencia.
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 12. Tema anterior](07-comunicaciones-opticas.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [14. Tema siguiente →](05-redes-telematica.md)

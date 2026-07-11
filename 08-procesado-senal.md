@@ -1,5 +1,9 @@
 # Bloque 8 — Procesado digital de señal (a nivel de idea)
 
+[← 6. Tema anterior](01-senales-y-sistemas.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [8. Tema siguiente →](21-automatica-control.md)
+
+> **Objetivo del bloque:** explicar cómo filtros, transformadas, correlación y compresión extraen o reducen información de señales digitales.
+
 ## Por qué casi todo se hizo digital
 
 En el bloque 1 ya se vio la razón principal (regeneración sin pérdida de calidad, facilidad de procesado). En este bloque se trata específicamente el **procesado**: una vez que una señal está en forma de números, se puede manipular con total precisión y repetibilidad usando algoritmos — filtrarla, comprimirla, analizarla, combinarla con otras — sin que el propio proceso de manipulación introduzca degradación (a diferencia de un circuito analógico, donde cada componente añade su propio ruido e imprecisión, y donde replicar exactamente el mismo comportamiento en otro dispositivo es prácticamente imposible por las tolerancias de fabricación).
@@ -73,3 +77,11 @@ En el dominio del tiempo, `señal` es ruido inservible a simple vista (imprímel
 2. Explica cómo la correlación encuentra una señal que está por debajo del ruido. ¿Qué papel juega la longitud del patrón?
 3. El audio de tus auriculares Bluetooth llega tarde respecto al vídeo. ¿Qué parte de ese retardo es distancia y qué parte es DSP?
 4. Un archivo JPEG de un cielo despejado ocupa mucho menos que uno de un bosque detallado, con la misma resolución. Explica por qué con los dos principios de la compresión.
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 6. Tema anterior](01-senales-y-sistemas.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [8. Tema siguiente →](21-automatica-control.md)

@@ -1,5 +1,9 @@
 # Bloque 16 — Sistemas de telecomunicación del mundo real: VoIP, GPS y radiodifusión
 
+[← 17. Tema anterior](10-tendencias.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [19. Tema siguiente →](11-telecom-para-fullstack.md)
+
+> **Objetivo del bloque:** integrar señal, sincronización, enlace, red y aplicación al explicar sistemas completos como VoIP, GPS o radiodifusión.
+
 > Tres sistemas que la carrera trata como asignaturas propias y que el temario original no cubría. Los tres son ejemplos magníficos de "toda la teoría anterior, junta y funcionando".
 
 ## VoIP: cuando la voz se convirtió en una app más
@@ -77,3 +81,11 @@ Disecciona el streaming adaptativo en tu propio navegador:
 2. El "directo" de Twitch va 15 segundos tarde y una videollamada no puede permitírselo. ¿Qué decisión de arquitectura separa ambos mundos?
 3. ¿Cómo estima NTP el desfase de tu reloj sin conocer la latencia de la red, y qué suposición marca su límite de precisión?
 4. El examen final del temario: elige VoIP, GPS, TDT o streaming, y explícaselo a alguien no técnico en cinco minutos usando solo analogías. Si lo consigues sin atascarte, este temario ha cumplido su función.
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 17. Tema anterior](10-tendencias.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [19. Tema siguiente →](11-telecom-para-fullstack.md)

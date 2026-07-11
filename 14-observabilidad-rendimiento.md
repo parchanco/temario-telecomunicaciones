@@ -1,5 +1,9 @@
 # Bloque 14 — Observabilidad y rendimiento
 
+[← 21. Tema anterior](13-redes-contenedores-cloud.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [23. Tema siguiente →](15-cloud-fundamentos.md)
+
+> **Objetivo del bloque:** formular hipótesis y localizar problemas usando métricas, logs, trazas, percentiles y objetivos de servicio.
+
 > El bloque 5 introdujo latencia, throughput y jitter como conceptos de red. Aquí se retoman aplicados a "tu API en producción" — y se añade la maquinaria para poder verlos y entenderlos cuando algo va mal.
 
 ## Percentiles de latencia: por qué la media miente
@@ -87,3 +91,11 @@ Observa la diferencia entre p50 y máximo — frecuentemente un orden de magnitu
 2. ¿Por qué "CPU al 90%" es una mala alerta y "p99 sobre el SLO durante 5 minutos" una buena? ¿Qué es la alert fatigue?
 3. Un compañero añade `user_id` como etiqueta a una métrica. Explícale qué va a pasar y adónde debería ir esa información.
 4. Tu sintético está verde y los usuarios de móvil se quejan. ¿Qué está pasando y qué te falta por medir?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 21. Tema anterior](13-redes-contenedores-cloud.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [23. Tema siguiente →](15-cloud-fundamentos.md)

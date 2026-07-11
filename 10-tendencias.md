@@ -1,5 +1,9 @@
 # Bloque 10 — Tendencias actuales
 
+[← 16. Tema anterior](09-seguridad.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [18. Tema siguiente →](16-sistemas-mundo-real.md)
+
+> **Objetivo del bloque:** evaluar tecnologías emergentes por el problema que resuelven, sus dependencias y sus contrapartidas reales.
+
 ## 5G/6G: network slicing, edge computing, y marketing vs realidad
 
 El 5G no es "una sola red más rápida" — su rasgo más distintivo es que puede comportarse como **varias redes virtuales distintas sobre la misma infraestructura física**, cada una optimizada para un tipo de uso diferente. Esto se llama **network slicing** (troceado de red): un operador puede tener, sobre el mismo hardware, una "porción" de red configurada para banda ancha móvil normal (tu móvil viendo vídeos), otra porción configurada para baja latencia ultra-fiable (comunicación entre coches, cirugía remota, control industrial), y otra para millones de sensores IoT de bajísimo consumo — cada una con garantías de rendimiento distintas, sin que se interfieran entre sí ni requieran redes físicas separadas.
@@ -75,3 +79,11 @@ Ancla estas tendencias a la realidad verificable:
 2. ¿Por qué "harvest now, decrypt later" convierte un riesgo futuro en un problema presente, y cuál es la respuesta que ya se está desplegando?
 3. Un puerto industrial evalúa WiFi 6 frente a 5G privado para sus grúas autónomas. Da dos argumentos técnicos para cada opción.
 4. ¿Qué promete Open RAN y cuál es su coste oculto? ¿A qué patrón del mundo del software te recuerda?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 16. Tema anterior](09-seguridad.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [18. Tema siguiente →](16-sistemas-mundo-real.md)

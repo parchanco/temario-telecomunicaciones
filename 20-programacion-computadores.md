@@ -1,5 +1,9 @@
 # Bloque 20 — Programación y arquitectura de computadores
 
+[← 2. Tema anterior](17-matematicas-para-telecom.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [4. Tema siguiente →](18-circuitos-electronica.md)
+
+> **Objetivo del bloque:** relacionar algoritmos, representación de datos, procesador, sistema operativo y sockets dentro de un sistema conectado.
+
 Las telecomunicaciones modernas son sistemas programables. Comprender qué ocurre entre el código, la memoria, el sistema operativo y la red permite razonar sobre rendimiento y fallos sin tratar el software como una caja negra.
 
 ## De un problema a un algoritmo
@@ -57,3 +61,11 @@ Escribe un cliente pequeño que consulte un nombre DNS y realice una petición H
 3. ¿Qué comparten y qué no comparten dos hilos de un proceso?
 4. ¿Por qué TCP obliga a la aplicación a delimitar mensajes?
 5. ¿Cuándo “rápido de media” no es suficiente?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 2. Tema anterior](17-matematicas-para-telecom.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [4. Tema siguiente →](18-circuitos-electronica.md)

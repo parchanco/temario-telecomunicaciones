@@ -1,5 +1,9 @@
 # Bloque 15 — Cloud computing (fundamentos conceptuales)
 
+[← 22. Tema anterior](14-observabilidad-rendimiento.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [Finalizar en Progreso →](PROGRESO.md)
+
+> **Objetivo del bloque:** tomar decisiones cloud entendiendo responsabilidad, aislamiento, escalado, identidad, resiliencia y coste.
+
 > Este bloque es deliberadamente **agnóstico de proveedor**: se centra en el "por qué" de los conceptos que AWS, Azure o GCP dan por sentados. Si ya estás haciendo un curso de AWS, este bloque es el mapa conceptual sobre el que colocar cada servicio concreto que te enseñen allí.
 
 ## Qué es realmente "la nube"
@@ -107,3 +111,11 @@ Dimensiona y presupuesta, en papel, una app real — el mejor antídoto contra e
 2. ¿Por qué "multi-cloud por si acaso" suele ser mala estrategia y qué redundancia resuelve de verdad el caso común?
 3. Ordena de menos a más lock-in: contenedores, funciones serverless con servicios propietarios, base de datos gestionada compatible con PostgreSQL. Justifica.
 4. Tu app funciona perfecta en una AZ, en una región, sin copias de seguridad probadas. ¿Qué pilares estás violando y cuál es el fallo más barato de corregir hoy?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 22. Tema anterior](14-observabilidad-rendimiento.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Finalizar en Progreso →](PROGRESO.md)

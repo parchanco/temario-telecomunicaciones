@@ -1,5 +1,9 @@
 # Bloque 3 — Electrónica de comunicaciones (nivel de sistema, no de circuito)
 
+[← 9. Tema anterior](02-teoria-comunicacion.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [11. Tema siguiente →](04-antenas-propagacion.md)
+
+> **Objetivo del bloque:** recorrer la cadena completa de un transceptor y justificar la función y los límites de cada bloque.
+
 > Este bloque se queda deliberadamente en el nivel de "qué bloque hace qué y por qué", sin entrar en el diseño de circuitos — eso es un temario aparte (electrónica analógica/RF de diseño) mucho más matemático.
 
 ## Anatomía de un transceptor de radio
@@ -83,3 +87,11 @@ Es probablemente la mejor relación coste/intuición de todo el temario.
 2. ¿Qué problema resuelve el receptor heterodino y qué pieza cambia realmente cuando "giras el dial"?
 3. ¿Por qué amplificar más no ayuda con una señal por debajo del suelo de ruido?
 4. FDD vs TDD: ¿cuál encaja mejor con un tráfico de internet muy asimétrico y por qué?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 9. Tema anterior](02-teoria-comunicacion.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [11. Tema siguiente →](04-antenas-propagacion.md)

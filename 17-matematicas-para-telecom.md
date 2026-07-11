@@ -1,5 +1,9 @@
 # Bloque 17 — Matemáticas para telecomunicaciones
 
+[← 1. Tema anterior](00-mapa-mental.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [3. Tema siguiente →](20-programacion-computadores.md)
+
+> **Objetivo del bloque:** elegir e interpretar las herramientas matemáticas que describen señales, sistemas, cambio e incertidumbre sin confundir el modelo con la realidad.
+
 Las matemáticas no son un peaje previo a la ingeniería: son un lenguaje para comprimir relaciones. Este bloque no busca calcular más, sino reconocer qué herramienta describe cada fenómeno.
 
 ## Modelar: decidir qué ignorar
@@ -57,3 +61,11 @@ Elige una conexión WiFi y crea una tabla con frecuencia, longitud de onda aprox
 3. Da un ejemplo físico de derivada y otro de integral.
 4. ¿Por qué una distribución puede ser útil aunque no prediga la próxima muestra de ruido?
 5. ¿Qué ventaja práctica aporta expresar ganancias y pérdidas en decibelios?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 1. Tema anterior](00-mapa-mental.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [3. Tema siguiente →](20-programacion-computadores.md)

@@ -1,5 +1,9 @@
 # Bloque 21 — Automática y control
 
+[← 7. Tema anterior](08-procesado-senal.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [9. Tema siguiente →](02-teoria-comunicacion.md)
+
+> **Objetivo del bloque:** reconocer un lazo de control y razonar sobre realimentación, respuesta, estabilidad, retraso y sincronización.
+
 Controlar es medir un sistema, comparar su estado con un objetivo y actuar para reducir la diferencia. Esa idea gobierna desde un termostato hasta la potencia de un móvil o el reloj de un receptor.
 
 ## Planta, referencia, sensor y actuador
@@ -53,3 +57,11 @@ Simula manualmente un termostato en una hoja de cálculo: temperatura, objetivo,
 3. ¿Qué revela una respuesta a escalón?
 4. ¿Qué aporta cada término de un PID?
 5. Da un ejemplo de control dentro de un sistema de comunicaciones.
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 7. Tema anterior](08-procesado-senal.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [9. Tema siguiente →](02-teoria-comunicacion.md)

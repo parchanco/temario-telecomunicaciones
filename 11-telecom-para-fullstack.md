@@ -1,5 +1,9 @@
 # Bloque 11 — De telecom a desarrollo fullstack
 
+[← 18. Tema anterior](16-sistemas-mundo-real.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [20. Tema siguiente →](12-sistemas-distribuidos.md)
+
+> **Objetivo del bloque:** usar principios de red y comunicación para diseñar, elegir y diagnosticar protocolos de aplicaciones modernas.
+
 > Este bloque conecta lo que ya sabes de desarrollo web con los conceptos de telecomunicaciones de los bloques anteriores. Es probablemente la parte que más vas a usar en el día a día.
 
 ## WebRTC: telecomunicaciones dentro del navegador
@@ -96,3 +100,11 @@ La guía de decisión: entre microservicios internos con mucho tráfico, gRPC ga
 2. ¿Por qué HTTP/3 abandonó TCP? Explica el head-of-line blocking con un ejemplo de una página que carga 20 recursos.
 3. Explica el patrón "hash en el nombre + caché infinita" y por qué elimina el clásico "dile al usuario que borre caché".
 4. ¿En qué sentido preciso configurar `Cache-Control` es tomar una decisión del teorema CAP?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 18. Tema anterior](16-sistemas-mundo-real.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [20. Tema siguiente →](12-sistemas-distribuidos.md)

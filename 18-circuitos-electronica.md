@@ -1,5 +1,9 @@
 # Bloque 18 — Circuitos y electrónica
 
+[← 3. Tema anterior](20-programacion-computadores.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [5. Tema siguiente →](19-electromagnetismo.md)
+
+> **Objetivo del bloque:** explicar cómo un circuito real genera, transforma, digitaliza y mide una señal, incluyendo sus límites no ideales.
+
 Un sistema de telecomunicación termina tocando materia: sensores, fuentes, amplificadores, conversores y cables. Este bloque construye el puente conceptual entre una señal abstracta y el circuito que la produce o mide.
 
 ## Tensión, corriente, potencia y energía
@@ -55,3 +59,11 @@ Usa un simulador de circuitos online o local para montar un filtro RC paso bajo.
 3. ¿Cuándo trabaja un transistor como interruptor y cuándo como amplificador?
 4. ¿Por qué más bits en un ADC no garantizan una medida correcta?
 5. ¿Cómo puede una sonda alterar aquello que intenta medir?
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 3. Tema anterior](20-programacion-computadores.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [5. Tema siguiente →](19-electromagnetismo.md)

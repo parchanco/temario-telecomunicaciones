@@ -28,6 +28,8 @@ Usa este ciclo:
 
 La hoja [PROGRESO.md](PROGRESO.md) reúne la checklist, los repasos y un pequeño diario de evidencias.
 
+> **Primera vez:** abre el [orden de estudio paso a paso](ORDEN-DE-ESTUDIO.md). Al final de cada capítulo encontrarás enlaces al tema anterior, al índice y al siguiente.
+
 ## Rutas recomendadas
 
 No hay un único orden correcto. Elige una ruta y usa los demás bloques como optativos.

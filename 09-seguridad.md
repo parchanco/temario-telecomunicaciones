@@ -1,5 +1,9 @@
 # Bloque 9 — Seguridad en comunicaciones
 
+[← 15. Tema anterior](06-redes-moviles.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [17. Tema siguiente →](10-tendencias.md)
+
+> **Objetivo del bloque:** distinguir confidencialidad, integridad, autenticidad y disponibilidad y asociar cada objetivo con mecanismos y amenazas.
+
 ## Cifrado simétrico vs asimétrico
 
 El **cifrado** transforma un mensaje legible en algo ininteligible para quien no tenga la clave adecuada, y permite revertir esa transformación solo a quien sí la tenga. Hay dos grandes familias, que resuelven problemas distintos:
@@ -63,3 +67,11 @@ Distinción importante que TLS no cubre: TLS protege el tramo **cliente-servidor
 2. ¿Por qué un servicio nunca debe poder decirte tu contraseña? ¿Qué son el salt y la lentitud deliberada, y qué ataque frustra cada uno?
 3. Traza la cadena completa de por qué tu navegador confía en tu banco, empezando por "hay una lista preinstalada en mi sistema operativo".
 4. ¿Qué puede leer el servidor de WhatsApp de tus mensajes, y qué puede leer tu operador de red? Distingue contenido y metadatos.
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 15. Tema anterior](06-redes-moviles.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [17. Tema siguiente →](10-tendencias.md)

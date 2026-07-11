@@ -1,5 +1,9 @@
 # Bloque 1 — Señales y sistemas (lo mínimo conceptual)
 
+[← 5. Tema anterior](19-electromagnetismo.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [7. Tema siguiente →](08-procesado-senal.md)
+
+> **Objetivo del bloque:** describir una señal en tiempo y frecuencia y razonar sobre ancho de banda, muestreo, cuantización y ruido.
+
 ## Analógico vs digital, y por qué digitalizamos
 
 Una señal **analógica** es una magnitud física que varía de forma continua (la presión del aire al hablar, el voltaje que sale de un micrófono). Una señal **digital** representa esa misma información con un número finito de valores discretos, casi siempre bits (0 y 1).
@@ -84,3 +88,11 @@ Con esto habrás "visto" la diferencia entre tiempo y frecuencia con tus propios
 2. Un enlace tiene ganancia de +30 dB y luego pierde −13 dB en cables y conectores. ¿Cuál es el factor neto, aproximadamente, sin calculadora?
 3. ¿Por qué el teléfono clásico muestreaba a 8 kHz y el CD a 44,1 kHz? ¿Qué decidió cada cifra?
 4. Explica el aliasing con el ejemplo de las ruedas de coche en vídeo, sin usar la palabra "frecuencia" más de una vez.
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 5. Tema anterior](19-electromagnetismo.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [7. Tema siguiente →](08-procesado-senal.md)

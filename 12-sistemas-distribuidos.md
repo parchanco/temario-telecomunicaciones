@@ -1,5 +1,9 @@
 # Bloque 12 — Sistemas distribuidos
 
+[← 19. Tema anterior](11-telecom-para-fullstack.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [Mi progreso](PROGRESO.md) · [21. Tema siguiente →](13-redes-contenedores-cloud.md)
+
+> **Objetivo del bloque:** razonar sobre coordinación, consistencia, reintentos y fallos cuando el estado se reparte entre varias máquinas.
+
 > Cuando una red de comunicaciones deja de ser solo "tuberías por las que viajan bits" y empieza a conectar máquinas que tienen que **ponerse de acuerdo** entre sí, aparecen problemas nuevos, muy relevantes en cualquier backend moderno.
 
 ## El teorema CAP
@@ -74,3 +78,11 @@ Después compara tus decisiones con la documentación de idempotencia de Stripe 
 2. "Exactly-once delivery" — ¿por qué los sistemas serios prometen en cambio "al menos una vez" y qué te exige eso como consumidor?
 3. Dos servidores registran eventos con timestamps de sus relojes. ¿Por qué ordenarlos por timestamp puede violar la causalidad, y qué alternativas hay?
 4. Tu cola de trabajos crece sin parar desde hace una hora. Enumera las tres únicas familias de solución y qué pregunta de negocio decide entre ellas.
+
+---
+
+## Continúa el recorrido
+
+Antes de avanzar, intenta responder la autoevaluación sin mirar y registra la práctica en [PROGRESO.md](PROGRESO.md). Si puedes explicar la idea central, dibujarla y conectarla con un bloque anterior, continúa.
+
+[← 19. Tema anterior](11-telecom-para-fullstack.md) · [Orden del curso](ORDEN-DE-ESTUDIO.md) · [21. Tema siguiente →](13-redes-contenedores-cloud.md)
