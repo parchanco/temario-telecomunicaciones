@@ -63,3 +63,7 @@ Distinción importante que TLS no cubre: TLS protege el tramo **cliente-servidor
 2. ¿Por qué un servicio nunca debe poder decirte tu contraseña? ¿Qué son el salt y la lentitud deliberada, y qué ataque frustra cada uno?
 3. Traza la cadena completa de por qué tu navegador confía en tu banco, empezando por "hay una lista preinstalada en mi sistema operativo".
 4. ¿Qué puede leer el servidor de WhatsApp de tus mensajes, y qué puede leer tu operador de red? Distingue contenido y metadatos.
+
+---
+
+**Navegación:** [⬅️ Bloque 8 — Procesado digital de señal (a nivel de idea)](08-procesado-senal.md) · [🏠 Índice](README.md) · [Bloque 10 — Tendencias actuales ➡️](10-tendencias.md)

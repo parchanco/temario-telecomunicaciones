@@ -75,3 +75,7 @@ Ancla estas tendencias a la realidad verificable:
 2. ¿Por qué "harvest now, decrypt later" convierte un riesgo futuro en un problema presente, y cuál es la respuesta que ya se está desplegando?
 3. Un puerto industrial evalúa WiFi 6 frente a 5G privado para sus grúas autónomas. Da dos argumentos técnicos para cada opción.
 4. ¿Qué promete Open RAN y cuál es su coste oculto? ¿A qué patrón del mundo del software te recuerda?
+
+---
+
+**Navegación:** [⬅️ Bloque 9 — Seguridad en comunicaciones](09-seguridad.md) · [🏠 Índice](README.md) · [Bloque 11 — De telecom a desarrollo fullstack ➡️](11-telecom-para-fullstack.md)

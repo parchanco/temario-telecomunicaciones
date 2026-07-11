@@ -74,3 +74,7 @@ Instala una app de análisis WiFi (WiFi Analyzer en Android; en macOS mantén pu
 2. ¿Por qué MIMO funciona mejor dentro de un edificio que en un descampado con visión directa?
 3. Tu WiFi de 5 GHz va más rápido cerca del router pero peor que el de 2.4 GHz en la habitación del fondo. Explica ambas cosas con conceptos de este bloque.
 4. ¿Qué hace exactamente el beamforming y por qué es imprescindible para el 5G de ondas milimétricas?
+
+---
+
+**Navegación:** [⬅️ Bloque 3 — Electrónica de comunicaciones (nivel de sistema, no de circuito)](03-electronica-comunicaciones.md) · [🏠 Índice](README.md) · [Bloque 5 — Redes y telemática ➡️](05-redes-telematica.md)

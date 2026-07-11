@@ -96,3 +96,7 @@ La guía de decisión: entre microservicios internos con mucho tráfico, gRPC ga
 2. ¿Por qué HTTP/3 abandonó TCP? Explica el head-of-line blocking con un ejemplo de una página que carga 20 recursos.
 3. Explica el patrón "hash en el nombre + caché infinita" y por qué elimina el clásico "dile al usuario que borre caché".
 4. ¿En qué sentido preciso configurar `Cache-Control` es tomar una decisión del teorema CAP?
+
+---
+
+**Navegación:** [⬅️ Bloque 10 — Tendencias actuales](10-tendencias.md) · [🏠 Índice](README.md) · [Bloque 12 — Sistemas distribuidos ➡️](12-sistemas-distribuidos.md)

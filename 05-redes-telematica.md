@@ -104,3 +104,7 @@ Tres comandos desde tu terminal, mirando lo que ya usas a diario:
 2. Explica por qué detrás de un NAT puedes navegar sin problema pero no puedes alojar un servidor sin "abrir puertos".
 3. Una app de videollamada va mal con jitter alto pero una descarga va perfecta en la misma red. ¿Por qué?
 4. ¿Cuántos viajes de ida y vuelta paga la primera petición HTTPS a un dominio nuevo, y qué tres mecanismos existen para no volver a pagarlos?
+
+---
+
+**Navegación:** [⬅️ Bloque 4 — Antenas y propagación](04-antenas-propagacion.md) · [🏠 Índice](README.md) · [Bloque 6 — Redes móviles y sistemas celulares ➡️](06-redes-moviles.md)

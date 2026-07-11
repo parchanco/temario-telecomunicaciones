@@ -73,3 +73,7 @@ En el dominio del tiempo, `señal` es ruido inservible a simple vista (imprímel
 2. Explica cómo la correlación encuentra una señal que está por debajo del ruido. ¿Qué papel juega la longitud del patrón?
 3. El audio de tus auriculares Bluetooth llega tarde respecto al vídeo. ¿Qué parte de ese retardo es distancia y qué parte es DSP?
 4. Un archivo JPEG de un cielo despejado ocupa mucho menos que uno de un bosque detallado, con la misma resolución. Explica por qué con los dos principios de la compresión.
+
+---
+
+**Navegación:** [⬅️ Bloque 7 — Comunicaciones ópticas](07-comunicaciones-opticas.md) · [🏠 Índice](README.md) · [Bloque 9 — Seguridad en comunicaciones ➡️](09-seguridad.md)

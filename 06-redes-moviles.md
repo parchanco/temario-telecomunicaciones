@@ -76,3 +76,7 @@ Tu móvil tiene un modo de ingeniería que muestra los números reales de esta a
 2. Explica el desafío-respuesta de la SIM y por qué el secreto nunca viaja por el aire. ¿Qué hace tan peligroso el SIM swapping?
 3. ¿Por qué la red no sabe en qué célula exacta estás cuando el móvil está en reposo, y qué gana con no saberlo?
 4. Estás en un concierto con cobertura "llena" e internet muerto. ¿Qué está pasando, en términos de este bloque?
+
+---
+
+**Navegación:** [⬅️ Bloque 5 — Redes y telemática](05-redes-telematica.md) · [🏠 Índice](README.md) · [Bloque 7 — Comunicaciones ópticas ➡️](07-comunicaciones-opticas.md)

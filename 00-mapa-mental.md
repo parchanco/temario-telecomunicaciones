@@ -64,3 +64,7 @@ Sin herramientas: cuéntale a alguien (o escríbelo en una nota) el viaje comple
 1. ¿Por qué dividir un sistema en capas facilita que cada una evolucione por separado? Da un ejemplo real (pista: tu app web no cambió cuando llegó el 5G).
 2. De las cinco disyuntivas, ¿cuál reconoces ya en alguna decisión técnica que hayas tomado como desarrollador?
 3. ¿En qué paso del "viaje del bit" dirías ahora mismo que tienes la imagen más borrosa? (Ese es tu próximo bloque.)
+
+---
+
+**Navegación:** [⬅️ Índice](README.md) · [🏠 Índice](README.md) · [Bloque 1 — Señales y sistemas (lo mínimo conceptual) ➡️](01-senales-y-sistemas.md)

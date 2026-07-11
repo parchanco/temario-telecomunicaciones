@@ -103,3 +103,7 @@ Diseña en papel (o en 20 líneas de código, si te apetece) un **código de rep
 2. ¿Qué demostró Shannon que se creía imposible antes de 1948?
 3. En una constelación 256-QAM frente a QPSK: ¿qué ganas, qué pierdes, y por qué tu WiFi cambia entre ellas sin preguntarte?
 4. ¿Por qué OFDM tolera el multitrayecto mejor que una portadora única rápida?
+
+---
+
+**Navegación:** [⬅️ Bloque 1 — Señales y sistemas (lo mínimo conceptual)](01-senales-y-sistemas.md) · [🏠 Índice](README.md) · [Bloque 3 — Electrónica de comunicaciones (nivel de sistema, no de circuito) ➡️](03-electronica-comunicaciones.md)

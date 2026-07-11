@@ -84,3 +84,7 @@ Con esto habrás "visto" la diferencia entre tiempo y frecuencia con tus propios
 2. Un enlace tiene ganancia de +30 dB y luego pierde −13 dB en cables y conectores. ¿Cuál es el factor neto, aproximadamente, sin calculadora?
 3. ¿Por qué el teléfono clásico muestreaba a 8 kHz y el CD a 44,1 kHz? ¿Qué decidió cada cifra?
 4. Explica el aliasing con el ejemplo de las ruedas de coche en vídeo, sin usar la palabra "frecuencia" más de una vez.
+
+---
+
+**Navegación:** [⬅️ Bloque 0 — Mapa mental antes de empezar](00-mapa-mental.md) · [🏠 Índice](README.md) · [Bloque 2 — Teoría de la comunicación ➡️](02-teoria-comunicacion.md)

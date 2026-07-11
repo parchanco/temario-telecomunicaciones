@@ -83,3 +83,7 @@ Es probablemente la mejor relación coste/intuición de todo el temario.
 2. ¿Qué problema resuelve el receptor heterodino y qué pieza cambia realmente cuando "giras el dial"?
 3. ¿Por qué amplificar más no ayuda con una señal por debajo del suelo de ruido?
 4. FDD vs TDD: ¿cuál encaja mejor con un tráfico de internet muy asimétrico y por qué?
+
+---
+
+**Navegación:** [⬅️ Bloque 2 — Teoría de la comunicación](02-teoria-comunicacion.md) · [🏠 Índice](README.md) · [Bloque 4 — Antenas y propagación ➡️](04-antenas-propagacion.md)

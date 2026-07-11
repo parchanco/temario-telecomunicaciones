@@ -87,3 +87,7 @@ Observa la diferencia entre p50 y máximo — frecuentemente un orden de magnitu
 2. ¿Por qué "CPU al 90%" es una mala alerta y "p99 sobre el SLO durante 5 minutos" una buena? ¿Qué es la alert fatigue?
 3. Un compañero añade `user_id` como etiqueta a una métrica. Explícale qué va a pasar y adónde debería ir esa información.
 4. Tu sintético está verde y los usuarios de móvil se quejan. ¿Qué está pasando y qué te falta por medir?
+
+---
+
+**Navegación:** [⬅️ Bloque 13 — Redes en contenedores y cloud](13-redes-contenedores-cloud.md) · [🏠 Índice](README.md) · [Bloque 15 — Cloud computing (fundamentos conceptuales) ➡️](15-cloud-fundamentos.md)

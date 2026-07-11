@@ -74,3 +74,7 @@ Después compara tus decisiones con la documentación de idempotencia de Stripe 
 2. "Exactly-once delivery" — ¿por qué los sistemas serios prometen en cambio "al menos una vez" y qué te exige eso como consumidor?
 3. Dos servidores registran eventos con timestamps de sus relojes. ¿Por qué ordenarlos por timestamp puede violar la causalidad, y qué alternativas hay?
 4. Tu cola de trabajos crece sin parar desde hace una hora. Enumera las tres únicas familias de solución y qué pregunta de negocio decide entre ellas.
+
+---
+
+**Navegación:** [⬅️ Bloque 11 — De telecom a desarrollo fullstack](11-telecom-para-fullstack.md) · [🏠 Índice](README.md) · [Bloque 13 — Redes en contenedores y cloud ➡️](13-redes-contenedores-cloud.md)

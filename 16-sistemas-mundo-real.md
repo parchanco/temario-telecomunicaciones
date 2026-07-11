@@ -77,3 +77,7 @@ Disecciona el streaming adaptativo en tu propio navegador:
 2. El "directo" de Twitch va 15 segundos tarde y una videollamada no puede permitírselo. ¿Qué decisión de arquitectura separa ambos mundos?
 3. ¿Cómo estima NTP el desfase de tu reloj sin conocer la latencia de la red, y qué suposición marca su límite de precisión?
 4. El examen final del temario: elige VoIP, GPS, TDT o streaming, y explícaselo a alguien no técnico en cinco minutos usando solo analogías. Si lo consigues sin atascarte, este temario ha cumplido su función.
+
+---
+
+**Navegación:** [⬅️ Bloque 15 — Cloud computing (fundamentos conceptuales)](15-cloud-fundamentos.md) · [🏠 Índice](README.md) · [Índice ➡️](README.md)

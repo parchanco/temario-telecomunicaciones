@@ -58,3 +58,7 @@ La fibra de tu casa no es un hilo dedicado hasta la central. Las redes **GPON (G
 2. ¿Cómo puede un cable submarino de hace 20 años transportar hoy cien veces más datos sin haberlo tocado?
 3. En una red GPON, ¿qué evita que veas el tráfico de bajada de tus vecinos, y qué evita que vuestras subidas colisionen? (Son dos mecanismos distintos.)
 4. ¿Por qué monomodo para largas distancias? Explica la dispersión modal con la analogía que prefieras.
+
+---
+
+**Navegación:** [⬅️ Bloque 6 — Redes móviles y sistemas celulares](06-redes-moviles.md) · [🏠 Índice](README.md) · [Bloque 8 — Procesado digital de señal (a nivel de idea) ➡️](08-procesado-senal.md)

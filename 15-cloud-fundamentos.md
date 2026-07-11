@@ -107,3 +107,7 @@ Dimensiona y presupuesta, en papel, una app real — el mejor antídoto contra e
 2. ¿Por qué "multi-cloud por si acaso" suele ser mala estrategia y qué redundancia resuelve de verdad el caso común?
 3. Ordena de menos a más lock-in: contenedores, funciones serverless con servicios propietarios, base de datos gestionada compatible con PostgreSQL. Justifica.
 4. Tu app funciona perfecta en una AZ, en una región, sin copias de seguridad probadas. ¿Qué pilares estás violando y cuál es el fallo más barato de corregir hoy?
+
+---
+
+**Navegación:** [⬅️ Bloque 14 — Observabilidad y rendimiento](14-observabilidad-rendimiento.md) · [🏠 Índice](README.md) · [Bloque 16 — Sistemas de telecomunicación del mundo real: VoIP, GPS y radiodifusión ➡️](16-sistemas-mundo-real.md)

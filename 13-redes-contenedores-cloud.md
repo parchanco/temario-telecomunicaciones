@@ -77,3 +77,7 @@ Con Docker en tu máquina, 10 minutos de ver-para-creer:
 2. Recorre de memoria los cinco saltos de una petición externa hasta un pod. ¿En cuál actúa NAT? ¿En cuál se decide el balanceo?
 3. ¿Por qué un Service de Kubernetes puede repartir tráfico sin ser un proceso por el que pasen los paquetes?
 4. ¿Por qué las NetworkPolicies se definen sobre etiquetas y no sobre IPs, y qué principio del bloque 15 implementan?
+
+---
+
+**Navegación:** [⬅️ Bloque 12 — Sistemas distribuidos](12-sistemas-distribuidos.md) · [🏠 Índice](README.md) · [Bloque 14 — Observabilidad y rendimiento ➡️](14-observabilidad-rendimiento.md)
