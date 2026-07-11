@@ -55,3 +55,7 @@ Calcula la longitud de onda aproximada para radio FM, WiFi de 2,4 GHz, WiFi de 5
 3. ¿Cómo puede una antena tener ganancia sin crear energía?
 4. ¿Qué provoca una reflexión en un cable?
 5. ¿Por qué el camino de retorno importa en compatibilidad electromagnética?
+
+---
+
+**Navegación:** [⬅️ Bloque 18 — Circuitos y electrónica](18-circuitos-electronica.md) · [🏠 Índice](README.md) · [Bloque 20 — Programación y arquitectura de computadores ➡️](20-programacion-computadores.md)

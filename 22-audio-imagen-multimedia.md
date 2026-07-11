@@ -57,3 +57,7 @@ Toma un audio o vídeo corto y expórtalo con tres bitrates. Compara tamaño, ar
 3. ¿Qué redundancias aprovecha un códec de vídeo?
 4. ¿Por qué un buffer mejora continuidad pero empeora interactividad?
 5. Da un caso en el que menos fidelidad produzca mejor experiencia.
+
+---
+
+**Navegación:** [⬅️ Bloque 21 — Automática y control](21-automatica-control.md) · [🏠 Índice](README.md) · [Índice ➡️](README.md)

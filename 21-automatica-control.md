@@ -53,3 +53,7 @@ Simula manualmente un termostato en una hoja de cálculo: temperatura, objetivo,
 3. ¿Qué revela una respuesta a escalón?
 4. ¿Qué aporta cada término de un PID?
 5. Da un ejemplo de control dentro de un sistema de comunicaciones.
+
+---
+
+**Navegación:** [⬅️ Bloque 20 — Programación y arquitectura de computadores](20-programacion-computadores.md) · [🏠 Índice](README.md) · [Bloque 22 — Audio, imagen y comunicaciones multimedia ➡️](22-audio-imagen-multimedia.md)

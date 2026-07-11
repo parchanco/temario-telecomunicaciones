@@ -57,3 +57,7 @@ Escribe un cliente pequeño que consulte un nombre DNS y realice una petición H
 3. ¿Qué comparten y qué no comparten dos hilos de un proceso?
 4. ¿Por qué TCP obliga a la aplicación a delimitar mensajes?
 5. ¿Cuándo “rápido de media” no es suficiente?
+
+---
+
+**Navegación:** [⬅️ Bloque 19 — Electromagnetismo y líneas de transmisión](19-electromagnetismo.md) · [🏠 Índice](README.md) · [Bloque 21 — Automática y control ➡️](21-automatica-control.md)

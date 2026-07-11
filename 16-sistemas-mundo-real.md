@@ -80,4 +80,4 @@ Disecciona el streaming adaptativo en tu propio navegador:
 
 ---
 
-**Navegación:** [⬅️ Bloque 15 — Cloud computing (fundamentos conceptuales)](15-cloud-fundamentos.md) · [🏠 Índice](README.md) · [Índice ➡️](README.md)
+**Navegación:** [⬅️ Bloque 15 — Cloud computing (fundamentos conceptuales)](15-cloud-fundamentos.md) · [🏠 Índice](README.md) · [Bloque 17 — Matemáticas para telecomunicaciones ➡️](17-matematicas-para-telecom.md)

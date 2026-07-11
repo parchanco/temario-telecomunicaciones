@@ -55,3 +55,7 @@ Usa un simulador de circuitos online o local para montar un filtro RC paso bajo.
 3. ¿Cuándo trabaja un transistor como interruptor y cuándo como amplificador?
 4. ¿Por qué más bits en un ADC no garantizan una medida correcta?
 5. ¿Cómo puede una sonda alterar aquello que intenta medir?
+
+---
+
+**Navegación:** [⬅️ Bloque 17 — Matemáticas para telecomunicaciones](17-matematicas-para-telecom.md) · [🏠 Índice](README.md) · [Bloque 19 — Electromagnetismo y líneas de transmisión ➡️](19-electromagnetismo.md)

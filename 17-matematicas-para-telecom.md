@@ -57,3 +57,7 @@ Elige una conexión WiFi y crea una tabla con frecuencia, longitud de onda aprox
 3. Da un ejemplo físico de derivada y otro de integral.
 4. ¿Por qué una distribución puede ser útil aunque no prediga la próxima muestra de ruido?
 5. ¿Qué ventaja práctica aporta expresar ganancias y pérdidas en decibelios?
+
+---
+
+**Navegación:** [⬅️ Bloque 16 — Sistemas de telecomunicación del mundo real: VoIP, GPS y radiodifusión](16-sistemas-mundo-real.md) · [🏠 Índice](README.md) · [Bloque 18 — Circuitos y electrónica ➡️](18-circuitos-electronica.md)
